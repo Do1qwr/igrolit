@@ -16,6 +16,7 @@ const TEMP = path.join(os.tmpdir(), 'igrolit-db-test');
 const DATA = path.join(TEMP, 'data.json');
 const BACKUPS = path.join(TEMP, 'backups');
 const LOG = path.join(TEMP, 'server.log');
+const OUT = path.join(TEMP, 'server.out');
 const PORT = 8791;
 
 const MINIMAL_DB = {
@@ -38,12 +39,23 @@ function reset() {
 }
 
 function start() {
+  const out = fs.openSync(OUT, 'a');
   spawn('node', [SERVER], {
     cwd: APP,
     detached: true,
-    stdio: 'ignore',
+    stdio: ['ignore', out, out],
     env: { ...process.env, PORT: String(PORT), DATA_FILE: DATA, ADMIN_NAMES: 'admin1' },
   }).unref();
+  fs.closeSync(out);
+}
+
+function serverOutput() {
+  try {
+    const text = fs.readFileSync(OUT, 'utf8');
+    return text.split(/\r?\n/).slice(-15).join('\n');
+  } catch {
+    return '(вывод сервера не создан)';
+  }
 }
 
 function status() {
@@ -61,9 +73,9 @@ function status() {
 }
 
 async function waitReady() {
-  for (let i = 0; i < 60; i += 1) {
+  for (let i = 0; i < 120; i += 1) {
     if (await status()) return true;
-    await new Promise((r) => setTimeout(r, 150));
+    await new Promise((r) => setTimeout(r, 250));
   }
   return false;
 }
@@ -101,6 +113,7 @@ function logText() {
   stop();
   await new Promise((r) => setTimeout(r, 400));
   check('сервер стартует на базе', ready);
+  if (!ready) console.log('  вывод сервера:\n' + serverOutput());
   check('бэкап создан при старте', backups().length === 1, 'файлов: ' + backups().length);
   check('запись о бэкапе есть в логе', logText().includes('backup created'));
 
