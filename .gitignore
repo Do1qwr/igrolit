@@ -1,0 +1,34 @@
+# зависимости и сборка
+node_modules/
+dist/
+src-tauri/target/
+app-builds/
+
+# секреты: НИКОГДА не коммитить
+update-signing.key
+*.pfx
+*.p12
+*.key
+*.pem
+.env
+.env.*
+
+# данные и логи приложения
+online-server/data.json
+online-server/data.json.bak-*
+online-server/*.bak
+online-server/backups/
+online-server/admin1_credentials.txt
+online-server/server.pid
+*.pid
+*.log
+update.applied
+crash.log
+
+# система
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/
+!.env.example

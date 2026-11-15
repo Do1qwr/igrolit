@@ -1,0 +1,92 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+env:
+  PORT: 8787
+  ADMIN_NAMES: admin1
+  DATA_FILE: ${{ github.workspace }}/ci-data.json
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Кэш Rust
+        uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: src-tauri
+
+      - name: Зависимости
+        run: npm ci
+
+      - name: Тесты Rust
+        run: cargo test --manifest-path src-tauri/Cargo.toml
+
+      - name: Сервер для smoke-тестов
+        shell: pwsh
+        run: |
+          Start-Process node -ArgumentList 'online-server/server.js' -WindowStyle Hidden
+          Start-Sleep -Seconds 4
+
+      - name: Smoke-тесты сервера
+        run: npm run test:server
+
+      - name: Сборка фронтенда
+        run: npm run build:release
+
+      - name: Установщики
+        run: npx tauri build
+
+      - name: Неподписанные артефакты
+        id: upload-unsigned
+        uses: actions/upload-artifact@v4
+        with:
+          name: game-launcher-unsigned
+          path: |
+            src-tauri/target/release/bundle/nsis/*-setup.exe
+            src-tauri/target/release/bundle/msi/*.msi
+          if-no-files-found: error
+
+      # Бесплатная подпись через SignPath Foundation.
+      # Включается после одобрения проекта: добавьте секреты
+      #   SIGNPATH_API_TOKEN, SIGNPATH_ORG_ID, SIGNPATH_PROJECT_SLUG, SIGNPATH_POLICY_SLUG
+      # Значения slug берутся из настроек проекта в SignPath.
+      - name: Подпись (SignPath)
+        if: ${{ secrets.SIGNPATH_API_TOKEN != '' }}
+        uses: signpath/github-action-submit-signing-request@v3
+        with:
+          api-token: ${{ secrets.SIGNPATH_API_TOKEN }}
+          organization-id: ${{ secrets.SIGNPATH_ORG_ID }}
+          project-slug: ${{ secrets.SIGNPATH_PROJECT_SLUG }}
+          signing-policy-slug: ${{ secrets.SIGNPATH_POLICY_SLUG }}
+          github-artifact-id: ${{ steps.upload-unsigned.outputs.artifact-id }}
+          wait-for-completion: true
+          output-artifact-directory: signed
+
+      - name: Подписанные артефакты
+        if: ${{ secrets.SIGNPATH_API_TOKEN != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: game-launcher-signed
+          path: signed/**
+          if-no-files-found: error

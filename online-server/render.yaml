@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: gamelauncher-online
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: PORT
+        value: 8787

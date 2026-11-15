@@ -1,0 +1,1066 @@
+[
+ {
+  "cat": "halloween",
+  "id": "halloween-0",
+  "emoji": "🧟",
+  "name": "Зомби",
+  "rarity": "rare"
+ },
+ {
+  "cat": "halloween",
+  "id": "halloween-1",
+  "emoji": "🎃",
+  "name": "Тыква",
+  "rarity": "common"
+ },
+ {
+  "cat": "halloween",
+  "id": "halloween-2",
+  "emoji": "👻",
+  "name": "Призрак",
+  "rarity": "rare"
+ },
+ {
+  "cat": "halloween",
+  "id": "halloween-3",
+  "emoji": "🦇",
+  "name": "Летучая мышь",
+  "rarity": "common"
+ },
+ {
+  "cat": "halloween",
+  "id": "halloween-4",
+  "emoji": "🧛",
+  "name": "Вампир",
+  "rarity": "epic"
+ },
+ {
+  "cat": "halloween",
+  "id": "halloween-5",
+  "emoji": "🧙",
+  "name": "Ведьма",
+  "rarity": "epic"
+ },
+ {
+  "cat": "halloween",
+  "id": "halloween-6",
+  "emoji": "🕸",
+  "name": "Паутина",
+  "rarity": "common"
+ },
+ {
+  "cat": "halloween",
+  "id": "halloween-7",
+  "emoji": "⚰",
+  "name": "Гроб",
+  "rarity": "legendary"
+ },
+ {
+  "cat": "valentine",
+  "id": "valentine-0",
+  "emoji": "❤",
+  "name": "Сердце",
+  "rarity": "common"
+ },
+ {
+  "cat": "valentine",
+  "id": "valentine-1",
+  "emoji": "💘",
+  "name": "Стрела Купидона",
+  "rarity": "rare"
+ },
+ {
+  "cat": "valentine",
+  "id": "valentine-2",
+  "emoji": "🌹",
+  "name": "Роза",
+  "rarity": "rare"
+ },
+ {
+  "cat": "valentine",
+  "id": "valentine-3",
+  "emoji": "💐",
+  "name": "Букет",
+  "rarity": "epic"
+ },
+ {
+  "cat": "valentine",
+  "id": "valentine-4",
+  "emoji": "🕊",
+  "name": "Голубь",
+  "rarity": "common"
+ },
+ {
+  "cat": "valentine",
+  "id": "valentine-5",
+  "emoji": "🍫",
+  "name": "Шоколад",
+  "rarity": "rare"
+ },
+ {
+  "cat": "valentine",
+  "id": "valentine-6",
+  "emoji": "💝",
+  "name": "Сердце в ленту",
+  "rarity": "epic"
+ },
+ {
+  "cat": "valentine",
+  "id": "valentine-7",
+  "emoji": "💍",
+  "name": "Кольцо",
+  "rarity": "legendary"
+ },
+ {
+  "cat": "defender",
+  "id": "defender-0",
+  "emoji": "🪖",
+  "name": "Каска",
+  "rarity": "rare"
+ },
+ {
+  "cat": "defender",
+  "id": "defender-1",
+  "emoji": "🎖",
+  "name": "Медаль",
+  "rarity": "epic"
+ },
+ {
+  "cat": "defender",
+  "id": "defender-2",
+  "emoji": "⭐",
+  "name": "Звезда",
+  "rarity": "common"
+ },
+ {
+  "cat": "defender",
+  "id": "defender-3",
+  "emoji": "🚁",
+  "name": "Вертолёт",
+  "rarity": "epic"
+ },
+ {
+  "cat": "defender",
+  "id": "defender-4",
+  "emoji": "🛡",
+  "name": "Щит",
+  "rarity": "rare"
+ },
+ {
+  "cat": "defender",
+  "id": "defender-5",
+  "emoji": "⚔",
+  "name": "Мечи",
+  "rarity": "epic"
+ },
+ {
+  "cat": "defender",
+  "id": "defender-6",
+  "emoji": "🏅",
+  "name": "Награда",
+  "rarity": "legendary"
+ },
+ {
+  "cat": "defender",
+  "id": "defender-7",
+  "emoji": "🕯",
+  "name": "Свеча",
+  "rarity": "common"
+ },
+ {
+  "cat": "lady",
+  "id": "lady-0",
+  "emoji": "🌸",
+  "name": "Цветок",
+  "rarity": "common"
+ },
+ {
+  "cat": "lady",
+  "id": "lady-1",
+  "emoji": "💄",
+  "name": "Помада",
+  "rarity": "rare"
+ },
+ {
+  "cat": "lady",
+  "id": "lady-2",
+  "emoji": "👜",
+  "name": "Сумочка",
+  "rarity": "rare"
+ },
+ {
+  "cat": "lady",
+  "id": "lady-3",
+  "emoji": "👠",
+  "name": "Туфля",
+  "rarity": "epic"
+ },
+ {
+  "cat": "lady",
+  "id": "lady-4",
+  "emoji": "💅",
+  "name": "Маникюр",
+  "rarity": "common"
+ },
+ {
+  "cat": "lady",
+  "id": "lady-5",
+  "emoji": "👑",
+  "name": "Корона",
+  "rarity": "legendary"
+ },
+ {
+  "cat": "lady",
+  "id": "lady-6",
+  "emoji": "💍",
+  "name": "Кольцо",
+  "rarity": "epic"
+ },
+ {
+  "cat": "lady",
+  "id": "lady-7",
+  "emoji": "🌷",
+  "name": "Тюльпан",
+  "rarity": "rare"
+ },
+ {
+  "cat": "drinks",
+  "id": "drinks-0",
+  "emoji": "☕",
+  "name": "Кофе",
+  "rarity": "common"
+ },
+ {
+  "cat": "drinks",
+  "id": "drinks-1",
+  "emoji": "🍵",
+  "name": "Чай",
+  "rarity": "common"
+ },
+ {
+  "cat": "drinks",
+  "id": "drinks-2",
+  "emoji": "🥤",
+  "name": "Сок",
+  "rarity": "common"
+ },
+ {
+  "cat": "drinks",
+  "id": "drinks-3",
+  "emoji": "🍺",
+  "name": "Пиво",
+  "rarity": "rare"
+ },
+ {
+  "cat": "drinks",
+  "id": "drinks-4",
+  "emoji": "🍷",
+  "name": "Вино",
+  "rarity": "rare"
+ },
+ {
+  "cat": "drinks",
+  "id": "drinks-5",
+  "emoji": "🍹",
+  "name": "Коктейль",
+  "rarity": "epic"
+ },
+ {
+  "cat": "drinks",
+  "id": "drinks-6",
+  "emoji": "🥂",
+  "name": "Бокалы",
+  "rarity": "epic"
+ },
+ {
+  "cat": "drinks",
+  "id": "drinks-7",
+  "emoji": "🥃",
+  "name": "Виски",
+  "rarity": "legendary"
+ },
+ {
+  "cat": "food",
+  "id": "food-0",
+  "emoji": "🍔",
+  "name": "Бургер",
+  "rarity": "common"
+ },
+ {
+  "cat": "food",
+  "id": "food-1",
+  "emoji": "🍕",
+  "name": "Пицца",
+  "rarity": "common"
+ },
+ {
+  "cat": "food",
+  "id": "food-2",
+  "emoji": "🍟",
+  "name": "Картошка",
+  "rarity": "common"
+ },
+ {
+  "cat": "food",
+  "id": "food-3",
+  "emoji": "🌭",
+  "name": "Хот-дог",
+  "rarity": "rare"
+ },
+ {
+  "cat": "food",
+  "id": "food-4",
+  "emoji": "🍩",
+  "name": "Пончик",
+  "rarity": "rare"
+ },
+ {
+  "cat": "food",
+  "id": "food-5",
+  "emoji": "🎂",
+  "name": "Торт",
+  "rarity": "epic"
+ },
+ {
+  "cat": "food",
+  "id": "food-6",
+  "emoji": "🍣",
+  "name": "Суши",
+  "rarity": "epic"
+ },
+ {
+  "cat": "food",
+  "id": "food-7",
+  "emoji": "🍇",
+  "name": "Виноград",
+  "rarity": "rare"
+ },
+ {
+  "cat": "gaming",
+  "id": "gaming-0",
+  "emoji": "🎮",
+  "name": "Геймпад",
+  "rarity": "epic"
+ },
+ {
+  "cat": "gaming",
+  "id": "gaming-1",
+  "emoji": "🕹",
+  "name": "Джойстик",
+  "rarity": "rare"
+ },
+ {
+  "cat": "gaming",
+  "id": "gaming-2",
+  "emoji": "🖥",
+  "name": "ПК",
+  "rarity": "epic"
+ },
+ {
+  "cat": "gaming",
+  "id": "gaming-3",
+  "emoji": "⌨",
+  "name": "Клавиатура",
+  "rarity": "common"
+ },
+ {
+  "cat": "gaming",
+  "id": "gaming-4",
+  "emoji": "🖱",
+  "name": "Мышь",
+  "rarity": "common"
+ },
+ {
+  "cat": "gaming",
+  "id": "gaming-5",
+  "emoji": "🎧",
+  "name": "Наушники",
+  "rarity": "rare"
+ },
+ {
+  "cat": "gaming",
+  "id": "gaming-6",
+  "emoji": "🧢",
+  "name": "Кепка стримера",
+  "rarity": "rare"
+ },
+ {
+  "cat": "gaming",
+  "id": "gaming-7",
+  "emoji": "🏆",
+  "name": "Трофей",
+  "rarity": "legendary"
+ },
+ {
+  "cat": "server",
+  "id": "server-0",
+  "emoji": "🖧",
+  "name": "Сервер",
+  "rarity": "legendary"
+ },
+ {
+  "cat": "server",
+  "id": "server-1",
+  "emoji": "🔌",
+  "name": "Провод",
+  "rarity": "common"
+ },
+ {
+  "cat": "server",
+  "id": "server-2",
+  "emoji": "⚡",
+  "name": "Молния",
+  "rarity": "rare"
+ },
+ {
+  "cat": "server",
+  "id": "server-3",
+  "emoji": "📡",
+  "name": "Антенна",
+  "rarity": "rare"
+ },
+ {
+  "cat": "server",
+  "id": "server-4",
+  "emoji": "🛠",
+  "name": "Инструмент",
+  "rarity": "common"
+ },
+ {
+  "cat": "server",
+  "id": "server-5",
+  "emoji": "🔧",
+  "name": "Ключ",
+  "rarity": "common"
+ },
+ {
+  "cat": "server",
+  "id": "server-6",
+  "emoji": "💾",
+  "name": "Дискета",
+  "rarity": "epic"
+ },
+ {
+  "cat": "server",
+  "id": "server-7",
+  "emoji": "🐧",
+  "name": "Пингвин",
+  "rarity": "epic"
+ },
+ {
+  "cat": "tank",
+  "id": "tank-0",
+  "emoji": "🛡",
+  "name": "Щит танка",
+  "rarity": "rare"
+ },
+ {
+  "cat": "tank",
+  "id": "tank-1",
+  "emoji": "💣",
+  "name": "Бомба",
+  "rarity": "epic"
+ },
+ {
+  "cat": "tank",
+  "id": "tank-2",
+  "emoji": "🔫",
+  "name": "Пистолет",
+  "rarity": "rare"
+ },
+ {
+  "cat": "tank",
+  "id": "tank-3",
+  "emoji": "🪖",
+  "name": "Шлем",
+  "rarity": "common"
+ },
+ {
+  "cat": "tank",
+  "id": "tank-4",
+  "emoji": "🔭",
+  "name": "Прицел",
+  "rarity": "rare"
+ },
+ {
+  "cat": "tank",
+  "id": "tank-5",
+  "emoji": "📻",
+  "name": "Рация",
+  "rarity": "common"
+ },
+ {
+  "cat": "tank",
+  "id": "tank-6",
+  "emoji": "🚬",
+  "name": "Патроны",
+  "rarity": "common"
+ },
+ {
+  "cat": "tank",
+  "id": "tank-7",
+  "emoji": "🥇",
+  "name": "Золото",
+  "rarity": "legendary"
+ },
+ {
+  "cat": "gold",
+  "id": "gold-0",
+  "emoji": "🪙",
+  "name": "Монета",
+  "rarity": "rare"
+ },
+ {
+  "cat": "gold",
+  "id": "gold-1",
+  "emoji": "💎",
+  "name": "Кристалл",
+  "rarity": "epic"
+ },
+ {
+  "cat": "gold",
+  "id": "gold-2",
+  "emoji": "💰",
+  "name": "Мешок денег",
+  "rarity": "epic"
+ },
+ {
+  "cat": "gold",
+  "id": "gold-3",
+  "emoji": "💵",
+  "name": "Доллар",
+  "rarity": "rare"
+ },
+ {
+  "cat": "gold",
+  "id": "gold-4",
+  "emoji": "🏦",
+  "name": "Банк",
+  "rarity": "legendary"
+ },
+ {
+  "cat": "gold",
+  "id": "gold-5",
+  "emoji": "📈",
+  "name": "График",
+  "rarity": "common"
+ },
+ {
+  "cat": "gold",
+  "id": "gold-6",
+  "emoji": "🧾",
+  "name": "Чек",
+  "rarity": "common"
+ },
+ {
+  "cat": "gold",
+  "id": "gold-7",
+  "emoji": "👑",
+  "name": "Золотая корона",
+  "rarity": "legendary"
+ },
+ {
+  "cat": "chivapi",
+  "id": "chivapi-0",
+  "emoji": "😎",
+  "name": "Мем",
+  "rarity": "common"
+ },
+ {
+  "cat": "chivapi",
+  "id": "chivapi-1",
+  "emoji": "🤙",
+  "name": "Зову",
+  "rarity": "common"
+ },
+ {
+  "cat": "chivapi",
+  "id": "chivapi-2",
+  "emoji": "💪",
+  "name": "Сила",
+  "rarity": "rare"
+ },
+ {
+  "cat": "chivapi",
+  "id": "chivapi-3",
+  "emoji": "🔥",
+  "name": "Огонь",
+  "rarity": "rare"
+ },
+ {
+  "cat": "chivapi",
+  "id": "chivapi-4",
+  "emoji": "😏",
+  "name": "Хитрый",
+  "rarity": "common"
+ },
+ {
+  "cat": "chivapi",
+  "id": "chivapi-5",
+  "emoji": "🎤",
+  "name": "Микрофон",
+  "rarity": "rare"
+ },
+ {
+  "cat": "chivapi",
+  "id": "chivapi-6",
+  "emoji": "🏎",
+  "name": "Гонка",
+  "rarity": "epic"
+ },
+ {
+  "cat": "chivapi",
+  "id": "chivapi-7",
+  "emoji": "👌",
+  "name": "OK",
+  "rarity": "epic"
+ },
+ {
+  "cat": "basic",
+  "id": "basic-0",
+  "emoji": "📦",
+  "name": "Коробка",
+  "rarity": "common"
+ },
+ {
+  "cat": "basic",
+  "id": "basic-1",
+  "emoji": "🔑",
+  "name": "Ключ",
+  "rarity": "common"
+ },
+ {
+  "cat": "basic",
+  "id": "basic-2",
+  "emoji": "🧳",
+  "name": "Чемодан",
+  "rarity": "rare"
+ },
+ {
+  "cat": "basic",
+  "id": "basic-3",
+  "emoji": "🖊",
+  "name": "Ручка",
+  "rarity": "common"
+ },
+ {
+  "cat": "basic",
+  "id": "basic-4",
+  "emoji": "📓",
+  "name": "Блокнот",
+  "rarity": "common"
+ },
+ {
+  "cat": "basic",
+  "id": "basic-5",
+  "emoji": "🔦",
+  "name": "Фонарь",
+  "rarity": "rare"
+ },
+ {
+  "cat": "basic",
+  "id": "basic-6",
+  "emoji": "🧷",
+  "name": "Скрепка",
+  "rarity": "common"
+ },
+ {
+  "cat": "basic",
+  "id": "basic-7",
+  "emoji": "📚",
+  "name": "Книги",
+  "rarity": "epic"
+ },
+ {
+  "cat": "bouquets",
+  "id": "bouquets-0",
+  "emoji": "💐",
+  "name": "Букет",
+  "rarity": "rare"
+ },
+ {
+  "cat": "bouquets",
+  "id": "bouquets-1",
+  "emoji": "🌸",
+  "name": "Ветка",
+  "rarity": "common"
+ },
+ {
+  "cat": "bouquets",
+  "id": "bouquets-2",
+  "emoji": "🌺",
+  "name": "Гибискус",
+  "rarity": "rare"
+ },
+ {
+  "cat": "bouquets",
+  "id": "bouquets-3",
+  "emoji": "🌻",
+  "name": "Подсолнух",
+  "rarity": "common"
+ },
+ {
+  "cat": "bouquets",
+  "id": "bouquets-4",
+  "emoji": "🌹",
+  "name": "Роза",
+  "rarity": "rare"
+ },
+ {
+  "cat": "bouquets",
+  "id": "bouquets-5",
+  "emoji": "🌷",
+  "name": "Тюльпан",
+  "rarity": "common"
+ },
+ {
+  "cat": "bouquets",
+  "id": "bouquets-6",
+  "emoji": "💮",
+  "name": "Белая",
+  "rarity": "epic"
+ },
+ {
+  "cat": "bouquets",
+  "id": "bouquets-7",
+  "emoji": "🥀",
+  "name": "Увядшая",
+  "rarity": "epic"
+ },
+ {
+  "cat": "animals",
+  "id": "animals-0",
+  "emoji": "🐶",
+  "name": "Собака",
+  "rarity": "common"
+ },
+ {
+  "cat": "animals",
+  "id": "animals-1",
+  "emoji": "🐱",
+  "name": "Кот",
+  "rarity": "common"
+ },
+ {
+  "cat": "animals",
+  "id": "animals-2",
+  "emoji": "🐰",
+  "name": "Кролик",
+  "rarity": "rare"
+ },
+ {
+  "cat": "animals",
+  "id": "animals-3",
+  "emoji": "🦊",
+  "name": "Лиса",
+  "rarity": "rare"
+ },
+ {
+  "cat": "animals",
+  "id": "animals-4",
+  "emoji": "🐼",
+  "name": "Панда",
+  "rarity": "epic"
+ },
+ {
+  "cat": "animals",
+  "id": "animals-5",
+  "emoji": "🦁",
+  "name": "Лев",
+  "rarity": "epic"
+ },
+ {
+  "cat": "animals",
+  "id": "animals-6",
+  "emoji": "🐧",
+  "name": "Пингвин",
+  "rarity": "rare"
+ },
+ {
+  "cat": "animals",
+  "id": "animals-7",
+  "emoji": "🦄",
+  "name": "Единорог",
+  "rarity": "legendary"
+ },
+ {
+  "cat": "gifts",
+  "id": "gifts-0",
+  "emoji": "🎁",
+  "name": "Подарок",
+  "rarity": "common"
+ },
+ {
+  "cat": "gifts",
+  "id": "gifts-1",
+  "emoji": "🎀",
+  "name": "Лента",
+  "rarity": "common"
+ },
+ {
+  "cat": "gifts",
+  "id": "gifts-2",
+  "emoji": "🎈",
+  "name": "Шарик",
+  "rarity": "common"
+ },
+ {
+  "cat": "gifts",
+  "id": "gifts-3",
+  "emoji": "🎉",
+  "name": "Хлопушка",
+  "rarity": "rare"
+ },
+ {
+  "cat": "gifts",
+  "id": "gifts-4",
+  "emoji": "🪅",
+  "name": "Пиньята",
+  "rarity": "epic"
+ },
+ {
+  "cat": "gifts",
+  "id": "gifts-5",
+  "emoji": "🧸",
+  "name": "Мишка",
+  "rarity": "rare"
+ },
+ {
+  "cat": "gifts",
+  "id": "gifts-6",
+  "emoji": "💝",
+  "name": "Подарок-сердце",
+  "rarity": "epic"
+ },
+ {
+  "cat": "gifts",
+  "id": "gifts-7",
+  "emoji": "🌀",
+  "name": "Фонтан",
+  "rarity": "legendary"
+ },
+ {
+  "cat": "weapons",
+  "id": "weapons-0",
+  "emoji": "🔫",
+  "name": "Пистолет",
+  "rarity": "rare"
+ },
+ {
+  "cat": "weapons",
+  "id": "weapons-1",
+  "emoji": "⚔",
+  "name": "Меч",
+  "rarity": "rare"
+ },
+ {
+  "cat": "weapons",
+  "id": "weapons-2",
+  "emoji": "🏹",
+  "name": "Лук",
+  "rarity": "common"
+ },
+ {
+  "cat": "weapons",
+  "id": "weapons-3",
+  "emoji": "🪓",
+  "name": "Топор",
+  "rarity": "rare"
+ },
+ {
+  "cat": "weapons",
+  "id": "weapons-4",
+  "emoji": "🔪",
+  "name": "Нож",
+  "rarity": "common"
+ },
+ {
+  "cat": "weapons",
+  "id": "weapons-5",
+  "emoji": "💣",
+  "name": "Граната",
+  "rarity": "epic"
+ },
+ {
+  "cat": "weapons",
+  "id": "weapons-6",
+  "emoji": "🛡",
+  "name": "Щит",
+  "rarity": "rare"
+ },
+ {
+  "cat": "weapons",
+  "id": "weapons-7",
+  "emoji": "💥",
+  "name": "Взрыв",
+  "rarity": "legendary"
+ },
+ {
+  "cat": "cars",
+  "id": "cars-0",
+  "emoji": "🚗",
+  "name": "Машина",
+  "rarity": "common"
+ },
+ {
+  "cat": "cars",
+  "id": "cars-1",
+  "emoji": "🏎",
+  "name": "Гонка",
+  "rarity": "epic"
+ },
+ {
+  "cat": "cars",
+  "id": "cars-2",
+  "emoji": "🚓",
+  "name": "Полиция",
+  "rarity": "rare"
+ },
+ {
+  "cat": "cars",
+  "id": "cars-3",
+  "emoji": "🚕",
+  "name": "Такси",
+  "rarity": "rare"
+ },
+ {
+  "cat": "cars",
+  "id": "cars-4",
+  "emoji": "🚙",
+  "name": "Джип",
+  "rarity": "rare"
+ },
+ {
+  "cat": "cars",
+  "id": "cars-5",
+  "emoji": "🛸",
+  "name": "НЛО",
+  "rarity": "legendary"
+ },
+ {
+  "cat": "cars",
+  "id": "cars-6",
+  "emoji": "🚑",
+  "name": "Скорая",
+  "rarity": "rare"
+ },
+ {
+  "cat": "cars",
+  "id": "cars-7",
+  "emoji": "🏁",
+  "name": "Флаг",
+  "rarity": "common"
+ },
+ {
+  "cat": "chem",
+  "id": "chem-0",
+  "emoji": "⚗",
+  "name": "Колба",
+  "rarity": "epic"
+ },
+ {
+  "cat": "chem",
+  "id": "chem-1",
+  "emoji": "🧪",
+  "name": "Пробирка",
+  "rarity": "rare"
+ },
+ {
+  "cat": "chem",
+  "id": "chem-2",
+  "emoji": "🧫",
+  "name": "Чашка",
+  "rarity": "rare"
+ },
+ {
+  "cat": "chem",
+  "id": "chem-3",
+  "emoji": "🔬",
+  "name": "Микроскоп",
+  "rarity": "epic"
+ },
+ {
+  "cat": "chem",
+  "id": "chem-4",
+  "emoji": "🧬",
+  "name": "ДНК",
+  "rarity": "legendary"
+ },
+ {
+  "cat": "chem",
+  "id": "chem-5",
+  "emoji": "🧯",
+  "name": "Огнетушитель",
+  "rarity": "common"
+ },
+ {
+  "cat": "chem",
+  "id": "chem-6",
+  "emoji": "☣",
+  "name": "Опасность",
+  "rarity": "common"
+ },
+ {
+  "cat": "chem",
+  "id": "chem-7",
+  "emoji": "💊",
+  "name": "Таблетка",
+  "rarity": "rare"
+ },
+ {
+  "cat": "victory",
+  "id": "victory-0",
+  "emoji": "🎖",
+  "name": "Медаль",
+  "rarity": "epic"
+ },
+ {
+  "cat": "victory",
+  "id": "victory-1",
+  "emoji": "⭐",
+  "name": "Звезда",
+  "rarity": "common"
+ },
+ {
+  "cat": "victory",
+  "id": "victory-2",
+  "emoji": "🕊",
+  "name": "Голубь",
+  "rarity": "rare"
+ },
+ {
+  "cat": "victory",
+  "id": "victory-3",
+  "emoji": "🏵",
+  "name": "Орден",
+  "rarity": "epic"
+ },
+ {
+  "cat": "victory",
+  "id": "victory-4",
+  "emoji": "🪖",
+  "name": "Каска",
+  "rarity": "rare"
+ },
+ {
+  "cat": "victory",
+  "id": "victory-5",
+  "emoji": "🎆",
+  "name": "Салют",
+  "rarity": "legendary"
+ },
+ {
+  "cat": "victory",
+  "id": "victory-6",
+  "emoji": "⏳",
+  "name": "Песочные часы",
+  "rarity": "rare"
+ },
+ {
+  "cat": "victory",
+  "id": "victory-7",
+  "emoji": "🕯",
+  "name": "Свеча памяти",
+  "rarity": "rare"
+ }
+]

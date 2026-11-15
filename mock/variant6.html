@@ -1,0 +1,131 @@
+﻿<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<title>Вариант 6: картинка за текстом</title>
+<style>
+  :root {
+    --bg: #0f131b; --panel: #191f2b; --panel-2: #202836; --line-soft: #232b38;
+    --text: #f7f9ff; --muted: #b2bccd; --muted-2: #8691a3;
+    --accent: #6f9dff; --gold: #d9a13b; --ok: #5ac88c;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 28px 24px 60px; background: radial-gradient(80% 50% at 50% 0%, #141a24, var(--bg) 70%); color: var(--text); font-family: 'Segoe UI', Roboto, sans-serif; }
+  h1 { font-size: 20px; margin: 0 0 6px; }
+  .sub { color: var(--muted-2); font-size: 13px; margin-bottom: 26px; }
+  .grid { display: grid; gap: 34px; max-width: 900px; }
+  .head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 10px; }
+  .tag { display: inline-grid; place-items: center; width: 34px; height: 26px; border-radius: 8px; background: rgba(217,161,59,.16); border: 1px solid rgba(217,161,59,.45); color: var(--gold); font-weight: 800; font-size: 12px; }
+  h2 { font-size: 14px; margin: 0; font-weight: 700; }
+  p { margin: 0; color: var(--muted-2); font-size: 12px; }
+
+  .block { padding: 12px; border: 1px solid rgba(217,161,59,.45); border-radius: 14px;
+    background: radial-gradient(120% 90% at 0% 0%, rgba(217,161,59,.12), transparent 62%), linear-gradient(180deg, rgba(217,161,59,.07), rgba(217,161,59,.03)); }
+  .blockhead { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .pinbadge { padding: 2px 9px; border-radius: 999px; background: linear-gradient(180deg, rgba(232,187,106,.34), rgba(217,161,59,.18)); border: 1px solid rgba(217,161,59,.45); color: var(--gold); font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; }
+  .blockhead span { color: var(--muted-2); font-size: 11.5px; }
+
+  .card { position: relative; overflow: hidden; border: 1px solid rgba(217,161,59,.3); border-radius: 12px; }
+
+  .body { position: relative; display: flex; align-items: center; gap: 10px; padding: 18px 14px 16px; min-height: 92px; min-width: 0; }
+  .place { width: 30px; flex: none; display: flex; flex-direction: column; align-items: center; gap: 2px; color: #f2c14e; }
+  .place em { width: 22px; height: 22px; display: grid; place-items: center; border-radius: 50%; background: rgba(242,193,78,.24); box-shadow: 0 0 12px rgba(242,193,78,.35); font-style: normal; }
+  .place b { font-size: 12px; font-weight: 800; }
+  .avatar { width: 34px; height: 34px; flex: none; display: grid; place-items: center; border-radius: 10px; border: 1px solid rgba(90,200,140,.45); background: rgba(90,200,140,.16); color: var(--ok); backdrop-filter: blur(4px); }
+  .id { display: flex; flex-direction: column; gap: 5px; min-width: 0; flex: 1; }
+  .name { font-size: 14px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-shadow: 0 1px 10px rgba(0,0,0,.75); }
+  .line { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: 11.5px; }
+  .badge { padding: 1px 8px; border-radius: 999px; background: rgba(67,209,122,.28); color: #b9f5d2; font-size: 10.5px; font-weight: 700; backdrop-filter: blur(4px); }
+  .status { padding: 1px 8px; border-radius: 999px; background: rgba(67,209,122,.22); color: #b9f5d2; }
+  .addr { padding: 1px 7px; border-radius: 6px; background: rgba(0,0,0,.35); color: var(--accent); font-family: Consolas, monospace; }
+  .votes { flex: none; display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; border-radius: 999px; background: rgba(0,0,0,.42); border: 1px solid rgba(217,161,59,.4); color: var(--gold); font-weight: 700; font-size: 11.5px; }
+  .play { flex: none; height: 30px; padding: 0 13px; display: inline-flex; align-items: center; gap: 6px; border-radius: 10px; border: 1px solid rgba(242,193,78,.6); background: linear-gradient(180deg, rgba(242,193,78,.3), rgba(217,161,59,.16)); color: #ffd98a; font-size: 12px; font-weight: 600; backdrop-filter: blur(4px); }
+  .play svg { width: 11px; height: 11px; fill: currentColor; }
+  .term { position: relative; padding: 8px 14px 10px; border-top: 1px solid rgba(217,161,59,.2); font-size: 11.5px; color: #cfd6e4; }
+  .crown { width: 13px; height: 13px; fill: currentColor; }
+
+  .f1 .bg { position: absolute; inset: 0; }
+  .f1 .bg img { width: 100%; height: 100%; object-fit: cover; display: block; filter: blur(16px) saturate(1.25) brightness(.85); transform: scale(1.15); }
+  .f1 .bg::after { content: ''; position: absolute; inset: 0; background: rgba(9,12,18,.52); }
+
+  .f2 .bg { position: absolute; inset: 0; }
+  .f2 .bg img { width: 100%; height: 100%; object-fit: cover; display: block; filter: blur(10px) saturate(1.15) brightness(.9); transform: scale(1.1); }
+  .f2 .bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(9,12,18,.35), rgba(9,12,18,.82)); }
+
+  .f3 .bg { position: absolute; inset: 0; }
+  .f3 .bg img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+  .f3 .bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(9,12,18,.9) 0%, rgba(9,12,18,.72) 45%, rgba(9,12,18,.5) 100%); }
+</style>
+</head>
+<body>
+  <h1>Вариант 6 — картинка за текстом</h1>
+  <div class="sub">Фон из баннера, текст и кнопки сверху. Три степени слияния — выбери одну.</div>
+
+  <div class="grid">
+
+    <div class="f1">
+      <div class="head"><span class="tag">6.1</span><h2>Размытый фон, контент поверх</h2><p>сильное размытие + ровное затемнение 52%</p></div>
+      <div class="block">
+        <div class="blockhead"><span class="pinbadge">Закреплено</span><span>платное размещение — на рейтинг не влияет</span></div>
+        <div class="card">
+          <div class="bg"><img src="banner.jpg" alt="" /></div>
+          <div class="body">
+            <div class="place"><em><svg class="crown" viewBox="0 0 24 24"><path d="M3 7l4 3 5-6 5 6 4-3-2 12H5L3 7z"/></svg></em><b>#2</b></div>
+            <div class="avatar"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="4" width="18" height="5" rx="2"/><rect x="3" y="10" width="18" height="5" rx="2"/><rect x="3" y="16" width="18" height="4" rx="2"/></svg></div>
+            <div class="id">
+              <div class="name">RedLine #4 SHOP|KITS|IMAX6|LootX5 [RUIENG]</div>
+              <div class="line"><span class="badge">Counter-Strike 1.6</span><span class="status">72/100 игроков</span><span class="addr">185.189.255.167:23500</span></div>
+            </div>
+            <span class="votes">▲ 0</span>
+            <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5.4v13.2L18.6 12z"/></svg>Играть</span>
+          </div>
+          <div class="term">Оплачено до 15.12.2026 · осталось 30 дней</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="f2">
+      <div class="head"><span class="tag">6.2</span><h2>Лёгкий блюр + градиент вниз</h2><p>верх светлее, низ темнее — текст читается</p></div>
+      <div class="block">
+        <div class="blockhead"><span class="pinbadge">Закреплено</span><span>платное размещение — на рейтинг не влияет</span></div>
+        <div class="card">
+          <div class="bg"><img src="banner.jpg" alt="" /></div>
+          <div class="body">
+            <div class="place"><em><svg class="crown" viewBox="0 0 24 24"><path d="M3 7l4 3 5-6 5 6 4-3-2 12H5L3 7z"/></svg></em><b>#2</b></div>
+            <div class="avatar"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="4" width="18" height="5" rx="2"/><rect x="3" y="10" width="18" height="5" rx="2"/><rect x="3" y="16" width="18" height="4" rx="2"/></svg></div>
+            <div class="id">
+              <div class="name">RedLine #4 SHOP|KITS|IMAX6|LootX5 [RUIENG]</div>
+              <div class="line"><span class="badge">Counter-Strike 1.6</span><span class="status">72/100 игроков</span><span class="addr">185.189.255.167:23500</span></div>
+            </div>
+            <span class="votes">▲ 0</span>
+            <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5.4v13.2L18.6 12z"/></svg>Играть</span>
+          </div>
+          <div class="term">Оплачено до 15.12.2026 · осталось 30 дней</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="f3">
+      <div class="head"><span class="tag">6.3</span><h2>Картинка как есть + затемнение слева</h2><p>без блюра, арт виден, текст на тёмной части</p></div>
+      <div class="block">
+        <div class="blockhead"><span class="pinbadge">Закреплено</span><span>платное размещение — на рейтинг не влияет</span></div>
+        <div class="card">
+          <div class="bg"><img src="banner.jpg" alt="" /></div>
+          <div class="body">
+            <div class="place"><em><svg class="crown" viewBox="0 0 24 24"><path d="M3 7l4 3 5-6 5 6 4-3-2 12H5L3 7z"/></svg></em><b>#2</b></div>
+            <div class="avatar"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="4" width="18" height="5" rx="2"/><rect x="3" y="10" width="18" height="5" rx="2"/><rect x="3" y="16" width="18" height="4" rx="2"/></svg></div>
+            <div class="id">
+              <div class="name">RedLine #4 SHOP|KITS|IMAX6|LootX5 [RUIENG]</div>
+              <div class="line"><span class="badge">Counter-Strike 1.6</span><span class="status">72/100 игроков</span><span class="addr">185.189.255.167:23500</span></div>
+            </div>
+            <span class="votes">▲ 0</span>
+            <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5.4v13.2L18.6 12z"/></svg>Играть</span>
+          </div>
+          <div class="term">Оплачено до 15.12.2026 · осталось 30 дней</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

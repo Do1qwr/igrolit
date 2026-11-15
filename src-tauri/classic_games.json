@@ -1,0 +1,1306 @@
+[
+    {
+        "id":  "warcraft3",
+        "name":  "Warcraft III: The Frozen Throne",
+        "executables":  [
+                            "Warcraft III.exe",
+                            "Frozen Throne.exe",
+                            "war3.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Warcraft III",
+                              "C:\\Program Files\\Warcraft III",
+                              "C:\\Games\\Warcraft III",
+                              "D:\\Games\\Warcraft III"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Warcraft III\\Save",
+        "launch_args":  "",
+        "description":  "Легендарная стратегия. Работает по локальной сети и через виртуальный LAN.",
+        "category":  "Стратегии"
+    },
+    {
+        "id":  "warcraft2",
+        "name":  "Warcraft II: Battle.net Edition",
+        "executables":  [
+                            "Warcraft II BNE.exe",
+                            "War2BNE.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Warcraft II BNE",
+                              "C:\\Program Files\\Warcraft II BNE",
+                              "C:\\Games\\Warcraft II BNE"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Warcraft II BNE\\Save",
+        "launch_args":  "",
+        "description":  "Классика RTS с поддержкой LAN и модемных матчей.",
+        "category":  "Стратегии"
+    },
+    {
+        "id":  "starcraft",
+        "name":  "StarCraft: Brood War",
+        "executables":  [
+                            "StarCraft.exe",
+                            "SCBroodWar.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\StarCraft",
+                              "C:\\Program Files\\StarCraft",
+                              "C:\\Games\\StarCraft"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\StarCraft\\Save",
+        "launch_args":  "",
+        "description":  "Sci-fi RTS, сетевые матчи по LAN и через модем.",
+        "category":  "Стратегии"
+    },
+    {
+        "id":  "diablo2",
+        "name":  "Diablo II: Lord of Destruction",
+        "executables":  [
+                            "Diablo II.exe",
+                            "Game.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Diablo II",
+                              "C:\\Program Files\\Diablo II",
+                              "C:\\Games\\Diablo II"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Diablo II\\save",
+        "launch_args":  "-w",
+        "description":  "Тёмное фэнтези. Запуск в окне с прямым доступом к видеопамяти.",
+        "category":  "RPG"
+    },
+    {
+        "id":  "diablo",
+        "name":  "Diablo",
+        "executables":  [
+                            "Diablo.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Diablo",
+                              "C:\\Games\\Diablo"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Diablo",
+        "launch_args":  "",
+        "description":  "Первая часть культовой серии, кооператив по LAN.",
+        "category":  "RPG"
+    },
+    {
+        "id":  "heroes3",
+        "name":  "Heroes of Might and Magic III",
+        "executables":  [
+                            "Heroes3.exe",
+                            "h3hota.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Heroes of Might and Magic III",
+                              "C:\\Program Files\\GOG.com\\Heroes of Might and Magic 3 Complete",
+                              "C:\\Games\\Heroes III"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Heroes III",
+        "launch_args":  "",
+        "description":  "Пошаговая стратегия. Hot-seat и сетевые партии.",
+        "category":  "Пошаговые"
+    },
+    {
+        "id":  "heroes2",
+        "name":  "Heroes of Might and Magic II",
+        "executables":  [
+                            "HEROES2.EXE",
+                            "heroes2.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Heroes of Might and Magic II",
+                              "C:\\Games\\Heroes II"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Heroes II",
+        "launch_args":  "",
+        "description":  "Вторая часть серии, LAN и hot-seat.",
+        "category":  "Пошаговые"
+    },
+    {
+        "id":  "age2",
+        "name":  "Age of Empires II",
+        "executables":  [
+                            "AoE2HD.exe",
+                            "empires2.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Age2HD",
+                              "C:\\Games\\Age of Empires II"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\My Games\\Age of Empires II\\SaveGame",
+        "launch_args":  "",
+        "description":  "Историческая RTS, прямые сетевые партии по IP.",
+        "category":  "Стратегии"
+    },
+    {
+        "id":  "age1",
+        "name":  "Age of Empires: Rise of Rome",
+        "executables":  [
+                            "empires.exe",
+                            "EMPIRESX.EXE"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Age of Empires",
+                              "C:\\Games\\Age of Empires"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\My Games\\Age of Empires",
+        "launch_args":  "",
+        "description":  "Первая часть с дополнением Rise of Rome, соединение по IP.",
+        "category":  "Стратегии"
+    },
+    {
+        "id":  "counterstrike16",
+        "name":  "Counter-Strike 1.6",
+        "executables":  [
+                            "hl.exe",
+                            "cstrike.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Half-Life",
+                              "C:\\Program Files (x86)\\Counter-Strike 1.6",
+                              "C:\\Games\\Counter-Strike 1.6"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\My Games\\Half-Life\\cstrike",
+        "launch_args":  "-game cstrike",
+        "description":  "Шутер, подключение по адресу через +connect.",
+        "category":  "Шутеры"
+    },
+    {
+        "id":  "halflife",
+        "name":  "Half-Life",
+        "executables":  [
+                            "hl.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Half-Life",
+                              "C:\\Games\\Half-Life"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\My Games\\Half-Life\\valve\\SAVE",
+        "launch_args":  "",
+        "description":  "Кооперативные моды и deathmatch по сети.",
+        "category":  "Шутеры"
+    },
+    {
+        "id":  "redalert2",
+        "name":  "Command \u0026 Conquer: Red Alert 2",
+        "executables":  [
+                            "game.exe",
+                            "ra2.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Red Alert 2",
+                              "C:\\Games\\Red Alert 2"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Red Alert 2",
+        "launch_args":  "",
+        "description":  "Стратегия с LAN-режимом. Нужен патч 10/11 для современных ОС.",
+        "category":  "Стратегии"
+    },
+    {
+        "id":  "generals",
+        "name":  "C\u0026C: Generals Zero Hour",
+        "executables":  [
+                            "generals.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Command and Conquer Generals Zero Hour",
+                              "C:\\Games\\Generals Zero Hour"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Command and Conquer Generals Zero Hour\\Save",
+        "launch_args":  "",
+        "description":  "Сетевая RTS, матчи по локальной сети.",
+        "category":  "Стратегии"
+    },
+    {
+        "id":  "tiberiansun",
+        "name":  "C\u0026C: Tiberian Sun",
+        "executables":  [
+                            "game.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Tiberian Sun",
+                              "C:\\Games\\Tiberian Sun"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Command \u0026 Conquer Tiberian Sun",
+        "launch_args":  "",
+        "description":  "Классическая стратегия с LAN-сражениями.",
+        "category":  "Стратегии"
+    },
+    {
+        "id":  "quake3",
+        "name":  "Quake III Arena",
+        "executables":  [
+                            "quake3.exe",
+                            "ioquake3.x86_64.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Quake III Arena",
+                              "C:\\Games\\Quake III Arena"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Quake III Arena",
+        "launch_args":  "",
+        "description":  "Арена-шутер, сервер и подключение по адресу.",
+        "category":  "Шутеры"
+    },
+    {
+        "id":  "ut99",
+        "name":  "Unreal Tournament \u002799",
+        "executables":  [
+                            "UnrealTournament.exe",
+                            "UT99.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\UnrealTournament",
+                              "C:\\Games\\Unreal Tournament"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\UnrealTournament\\Save",
+        "launch_args":  "",
+        "description":  "Легендарный арена-шутер с LAN-режимом.",
+        "category":  "Шутеры"
+    },
+    {
+        "id":  "wolfet",
+        "name":  "Wolfenstein: Enemy Territory",
+        "executables":  [
+                            "et.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Wolfenstein - Enemy Territory",
+                              "C:\\Games\\Wolfenstein ET"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Wolfenstein - Enemy Territory",
+        "launch_args":  "",
+        "description":  "Бесплатный командный шутер, LAN и интернет-серверы.",
+        "category":  "Шутеры"
+    },
+    {
+        "id":  "stronghold_crusader",
+        "name":  "Stronghold Crusader",
+        "executables":  [
+                            "Stronghold Crusader.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Firefly Studios\\Stronghold Crusader",
+                              "C:\\Games\\Stronghold Crusader"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Stronghold Crusader\\Save",
+        "launch_args":  "",
+        "description":  "Замковая стратегия, сетевые осады по LAN.",
+        "category":  "Стратегии"
+    },
+    {
+        "id":  "gta_sa",
+        "name":  "GTA: San Andreas",
+        "executables":  [
+                            "gta_sa.exe",
+                            "samp.exe",
+                            "mta.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Rockstar Games\\GTA San Andreas",
+                              "C:\\Games\\GTA San Andreas"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\GTA San Andreas User Files",
+        "launch_args":  "",
+        "description":  "Классика открытого мира. Идеально для SAMP/MultiTheft Auto.",
+        "category":  "Экшн"
+    },
+    {
+        "id":  "swat4",
+        "name":  "SWAT 4",
+        "executables":  [
+                            "Swat4.exe",
+                            "Swat4X.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\SWAT 4",
+                              "C:\\Games\\SWAT 4"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\SWAT 4",
+        "launch_args":  "",
+        "description":  "Тактический шутер, кооператив по сети.",
+        "category":  "Шутеры"
+    },
+    {
+        "id":  "bf1942",
+        "name":  "Battlefield 1942",
+        "executables":  [
+                            "BF1942.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\EA GAMES\\Battlefield 1942",
+                              "C:\\Games\\Battlefield 1942"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Battlefield 1942",
+        "launch_args":  "",
+        "description":  "Большие сетевые сражения, сервер поднимается в игре.",
+        "category":  "Шутеры"
+    },
+    {
+        "id":  "neverwinter",
+        "name":  "Neverwinter Nights",
+        "executables":  [
+                            "nwmain.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\NeverwinterNights\\NWN",
+                              "C:\\Games\\Neverwinter Nights"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Neverwinter Nights",
+        "launch_args":  "",
+        "description":  "RPG с полноценным сетевым режимом и мастером.",
+        "category":  "RPG"
+    },
+    {
+        "id":  "titanquest",
+        "name":  "Titan Quest",
+        "executables":  [
+                            "Titan Quest.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Titan Quest",
+                              "C:\\Games\\Titan Quest"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\My Games\\Titan Quest",
+        "launch_args":  "",
+        "description":  "Экшен-RPG, кооператив по локальной сети.",
+        "category":  "RPG"
+    },
+    {
+        "id":  "aoe3",
+        "name":  "Age of Empires III",
+        "executables":  [
+                            "age3.exe",
+                            "age3x.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Age of Empires III",
+                              "C:\\Program Files (x86)\\Microsoft Games\\Age of Empires III"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\My Games\\Age of Empires 3\\Savegame",
+        "launch_args":  "",
+        "description":  "Колониальная RTS, сетевые партии и дополнения.",
+        "category":  "Стратегии"
+    },
+    {
+        "id":  "aom",
+        "name":  "Age of Mythology",
+        "executables":  [
+                            "aomx.exe",
+                            "aom.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Microsoft Games\\Age of Mythology",
+                              "C:\\Games\\Age of Mythology"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\My Games\\Age of Mythology\\Savegame",
+        "launch_args":  "",
+        "description":  "Мифологическая RTS с сетевым режимом.",
+        "category":  "Стратегии"
+    },
+    {
+        "id":  "american_conquest",
+        "name":  "American Conquest",
+        "executables":  [
+                            "american.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\American Conquest",
+                              "C:\\Games\\American Conquest"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\American Conquest",
+        "launch_args":  "",
+        "description":  "Массовые баталии эпохи колонизации.",
+        "category":  "Стратегии"
+    },
+    {
+        "id":  "actofwar",
+        "name":  "Act of War: Direct Action",
+        "executables":  [
+                            "actofwar.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Act of War",
+                              "C:\\Games\\Act of War"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Act of War",
+        "launch_args":  "",
+        "description":  "Современная тактическая RTS.",
+        "category":  "Стратегии"
+    },
+    {
+        "id":  "anno1404",
+        "name":  "Anno 1404: Venice",
+        "executables":  [
+                            "Anno1404.exe",
+                            "addon.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Ubisoft\\Anno 1404",
+                              "C:\\Games\\Anno 1404"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Anno1404",
+        "launch_args":  "",
+        "description":  "Экономическая стратегия с кооперативом.",
+        "category":  "Стратегии"
+    },
+    {
+        "id":  "baldurs_gate",
+        "name":  "Baldur\u0027s Gate",
+        "executables":  [
+                            "Baldur.exe",
+                            "bgate.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Baldur\u0027s Gate",
+                              "C:\\Games\\Baldurs Gate"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Baldur\u0027s Gate",
+        "launch_args":  "",
+        "description":  "Классическая RPG, кооператив до шести игроков.",
+        "category":  "RPG"
+    },
+    {
+        "id":  "baldurs_gate2",
+        "name":  "Baldur\u0027s Gate II: Shadows of Amn",
+        "executables":  [
+                            "BGMain.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Baldur\u0027s Gate II",
+                              "C:\\Games\\Baldurs Gate II"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Baldur\u0027s Gate II",
+        "launch_args":  "",
+        "description":  "Продолжение легендарной RPG, сетевой кооп.",
+        "category":  "RPG"
+    },
+    {
+        "id":  "bf2",
+        "name":  "Battlefield 2",
+        "executables":  [
+                            "BF2.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\EA GAMES\\Battlefield 2",
+                              "C:\\Games\\Battlefield 2"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Battlefield 2",
+        "launch_args":  "",
+        "description":  "Современные сетевые бои, сервер в игре.",
+        "category":  "Шутеры"
+    },
+    {
+        "id":  "bf2142",
+        "name":  "Battlefield 2142",
+        "executables":  [
+                            "BF2142.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\EA GAMES\\Battlefield 2142",
+                              "C:\\Games\\Battlefield 2142"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Battlefield 2142",
+        "launch_args":  "",
+        "description":  "Футуристические сражения на 64 игрока.",
+        "category":  "Шутеры"
+    },
+    {
+        "id":  "cod1",
+        "name":  "Call of Duty",
+        "executables":  [
+                            "CoDMP.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Call of Duty",
+                              "C:\\Games\\Call of Duty"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Call of Duty",
+        "launch_args":  "",
+        "description":  "Шутер о Второй мировой, сетевые режимы.",
+        "category":  "Шутеры"
+    },
+    {
+        "id":  "cod2",
+        "name":  "Call of Duty 2",
+        "executables":  [
+                            "CoD2MP_s.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Call of Duty 2",
+                              "C:\\Games\\Call of Duty 2"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Call of Duty 2",
+        "launch_args":  "",
+        "description":  "Мультиплеер Второй мировой.",
+        "category":  "Шутеры"
+    },
+    {
+        "id":  "cod4",
+        "name":  "Call of Duty 4: Modern Warfare",
+        "executables":  [
+                            "iw3mp.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Call of Duty 4",
+                              "C:\\Games\\Call of Duty 4"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Call of Duty 4",
+        "launch_args":  "",
+        "description":  "Современная война, сервер по IP.",
+        "category":  "Шутеры"
+    },
+    {
+        "id":  "cossacks",
+        "name":  "Cossacks: European Wars",
+        "executables":  [
+                            "cossacks.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Cossacks",
+                              "C:\\Games\\Cossacks"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Cossacks",
+        "launch_args":  "",
+        "description":  "Массовые RTS-баталии XVII-XVIII века.",
+        "category":  "Стратегии"
+    },
+    {
+        "id":  "cossacks2",
+        "name":  "Cossacks II: Napoleonic Wars",
+        "executables":  [
+                            "cossacks2.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Cossacks II",
+                              "C:\\Games\\Cossacks II"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Cossacks II",
+        "launch_args":  "",
+        "description":  "Наполеоновские сражения в сети.",
+        "category":  "Стратегии"
+    },
+    {
+        "id":  "close_combat3",
+        "name":  "Close Combat III",
+        "executables":  [
+                            "CC3.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Close Combat III",
+                              "C:\\Games\\Close Combat III"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Close Combat III",
+        "launch_args":  "",
+        "description":  "Тактические бои Второй мировой.",
+        "category":  "Стратегии"
+    },
+    {
+        "id":  "ra3",
+        "name":  "Command \u0026 Conquer: Red Alert 3",
+        "executables":  [
+                            "RA3.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Command and Conquer Red Alert 3",
+                              "C:\\Games\\Red Alert 3"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Red Alert 3",
+        "launch_args":  "",
+        "description":  "Альтернативная история, сетевые бои.",
+        "category":  "Стратегии"
+    },
+    {
+        "id":  "cnc3",
+        "name":  "Command \u0026 Conquer 3: Tiberium Wars",
+        "executables":  [
+                            "CNC3.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\EA Games\\Command \u0026 Conquer 3",
+                              "C:\\Games\\C\u0026C 3"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Command \u0026 Conquer 3",
+        "launch_args":  "",
+        "description":  "Sci-fi RTS с сетевыми матчами.",
+        "category":  "Стратегии"
+    },
+    {
+        "id":  "coh",
+        "name":  "Company of Heroes",
+        "executables":  [
+                            "RelicCOH.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Company of Heroes",
+                              "C:\\Games\\Company of Heroes"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\My Games\\Company of Heroes",
+        "launch_args":  "",
+        "description":  "Тактика Второй мировой, сетевые бои.",
+        "category":  "Стратегии"
+    },
+    {
+        "id":  "civ4",
+        "name":  "Civilization IV: Beyond the Sword",
+        "executables":  [
+                            "Civ4BeyondSword.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\2K Games\\Firaxis Games\\Sid Meier\u0027s Civilization 4",
+                              "C:\\Games\\Civilization IV"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\My Games\\Beyond the Sword",
+        "launch_args":  "",
+        "description":  "Пошаговая стратегия, сетевые партии.",
+        "category":  "Пошаговые"
+    },
+    {
+        "id":  "dune2000",
+        "name":  "Dune 2000",
+        "executables":  [
+                            "DUNE2000.EXE"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Dune 2000",
+                              "C:\\Games\\Dune 2000"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Dune 2000",
+        "launch_args":  "",
+        "description":  "Классическая RTS по вселенной Дюны.",
+        "category":  "Стратегии"
+    },
+    {
+        "id":  "delta_force_bhd",
+        "name":  "Delta Force: Black Hawk Down",
+        "executables":  [
+                            "BHD.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Novalogic\\Delta Force - Black Hawk Down",
+                              "C:\\Games\\Delta Force Black Hawk Down"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Delta Force Black Hawk Down",
+        "launch_args":  "",
+        "description":  "Тактический шутер с сетевыми миссиями.",
+        "category":  "Шутеры"
+    },
+    {
+        "id":  "doom3",
+        "name":  "Doom 3",
+        "executables":  [
+                            "Doom3.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Doom 3",
+                              "C:\\Games\\Doom 3"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\id Software\\doom3\\base\\savegames",
+        "launch_args":  "",
+        "description":  "Мрачный шутер, кооперативные моды.",
+        "category":  "Шутеры"
+    },
+    {
+        "id":  "dk2",
+        "name":  "Dungeon Keeper 2",
+        "executables":  [
+                            "DKeeper2.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Dungeon Keeper 2",
+                              "C:\\Games\\Dungeon Keeper 2"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Dungeon Keeper 2",
+        "launch_args":  "",
+        "description":  "Строительство подземелья, сетевые схватки.",
+        "category":  "Стратегии"
+    },
+    {
+        "id":  "ee2",
+        "name":  "Empire Earth II",
+        "executables":  [
+                            "EmpireEarthII.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Empire Earth II",
+                              "C:\\Games\\Empire Earth II"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Empire Earth II",
+        "launch_args":  "",
+        "description":  "Стратегия от каменного века до будущего.",
+        "category":  "Стратегии"
+    },
+    {
+        "id":  "ghost_recon",
+        "name":  "Ghost Recon",
+        "executables":  [
+                            "GhostRecon.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Red Storm Entertainment\\Ghost Recon",
+                              "C:\\Games\\Ghost Recon"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Ghost Recon",
+        "launch_args":  "",
+        "description":  "Тактический шутер, кооператив по сети.",
+        "category":  "Шутеры"
+    },
+    {
+        "id":  "halo_ce",
+        "name":  "Halo: Combat Evolved",
+        "executables":  [
+                            "haloce.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Microsoft Games\\Halo",
+                              "C:\\Games\\Halo"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\My Games\\Halo",
+        "launch_args":  "",
+        "description":  "Легендарный шутер с LAN-режимом.",
+        "category":  "Шутеры"
+    },
+    {
+        "id":  "hoi2",
+        "name":  "Hearts of Iron II",
+        "executables":  [
+                            "hoi2.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Hearts of Iron II",
+                              "C:\\Games\\Hearts of Iron II"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Hearts of Iron II",
+        "launch_args":  "",
+        "description":  "Глобальная стратегия Второй мировой.",
+        "category":  "Стратегии"
+    },
+    {
+        "id":  "heroes4",
+        "name":  "Heroes of Might and Magic IV",
+        "executables":  [
+                            "heroes4.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\3DO\\Heroes of Might and Magic IV",
+                              "C:\\Games\\Heroes IV"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Heroes IV",
+        "launch_args":  "",
+        "description":  "Пошаговая стратегия с сетевыми партиями.",
+        "category":  "Пошаговые"
+    },
+    {
+        "id":  "heroes5",
+        "name":  "Heroes of Might and Magic V",
+        "executables":  [
+                            "H5_Game.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Ubisoft\\Heroes of Might and Magic V",
+                              "C:\\Games\\Heroes V"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\My Games\\Heroes of Might and Magic V",
+        "launch_args":  "",
+        "description":  "Фэнтезийная пошаговая стратегия, сеть.",
+        "category":  "Пошаговые"
+    },
+    {
+        "id":  "homeworld2",
+        "name":  "Homeworld 2",
+        "executables":  [
+                            "Homeworld2.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Sierra\\Homeworld2",
+                              "C:\\Games\\Homeworld 2"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Homeworld2",
+        "launch_args":  "",
+        "description":  "Космическая RTS с сетевыми сражениями.",
+        "category":  "Стратегии"
+    },
+    {
+        "id":  "jedi_outcast",
+        "name":  "Jedi Knight II: Jedi Outcast",
+        "executables":  [
+                            "jk2mp.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\LucasArts\\Jedi Outcast",
+                              "C:\\Games\\Jedi Outcast"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\My Games\\Jedi Outcast",
+        "launch_args":  "",
+        "description":  "Шутер по «Звёздным войнам», сетевые дуэли.",
+        "category":  "Экшн"
+    },
+    {
+        "id":  "majesty",
+        "name":  "Majesty: The Fantasy Kingdom Sim",
+        "executables":  [
+                            "majesty.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Majesty",
+                              "C:\\Games\\Majesty"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Majesty",
+        "launch_args":  "",
+        "description":  "Необычная стратегия с косвенным управлением.",
+        "category":  "Стратегии"
+    },
+    {
+        "id":  "moo2",
+        "name":  "Master of Orion II",
+        "executables":  [
+                            "orion2.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\MicroProse\\Master of Orion II",
+                              "C:\\Games\\Master of Orion II"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Master of Orion II",
+        "launch_args":  "",
+        "description":  "Космическая 4X-стратегия, сетевые партии.",
+        "category":  "Пошаговые"
+    },
+    {
+        "id":  "mohaa",
+        "name":  "Medal of Honor: Allied Assault",
+        "executables":  [
+                            "MOHAA.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\EA Games\\MOHAA",
+                              "C:\\Games\\MOHAA"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\MOHAA",
+        "launch_args":  "",
+        "description":  "Шутер о высадке в Нормандии, сеть.",
+        "category":  "Шутеры"
+    },
+    {
+        "id":  "medieval2",
+        "name":  "Medieval II: Total War",
+        "executables":  [
+                            "medieval2.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Medieval II Total War",
+                              "C:\\Games\\Medieval II"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\My Games\\Medieval II Total War",
+        "launch_args":  "",
+        "description":  "Средневековые битвы и кампании по сети.",
+        "category":  "Стратегии"
+    },
+    {
+        "id":  "nfsu2",
+        "name":  "Need for Speed: Underground 2",
+        "executables":  [
+                            "speed2.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\EA GAMES\\Need for Speed Underground 2",
+                              "C:\\Games\\NFSU2"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\NFS Underground 2",
+        "launch_args":  "",
+        "description":  "Гонки с сетевыми заездами.",
+        "category":  "Гонки"
+    },
+    {
+        "id":  "nfsmw",
+        "name":  "Need for Speed: Most Wanted",
+        "executables":  [
+                            "speed.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\EA GAMES\\Need for Speed Most Wanted",
+                              "C:\\Games\\NFS Most Wanted"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\NFS Most Wanted",
+        "launch_args":  "",
+        "description":  "Гонки с погонями, сетевые режимы.",
+        "category":  "Гонки"
+    },
+    {
+        "id":  "populous",
+        "name":  "Populous: The Beginning",
+        "executables":  [
+                            "populous.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Populous",
+                              "C:\\Games\\Populous"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Populous",
+        "launch_args":  "",
+        "description":  "Стратегия с шаманами, сетевые схватки.",
+        "category":  "Стратегии"
+    },
+    {
+        "id":  "praetorians",
+        "name":  "Praetorians",
+        "executables":  [
+                            "Praetorians.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Praetorians",
+                              "C:\\Games\\Praetorians"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Praetorians",
+        "launch_args":  "",
+        "description":  "Тактика античного Рима, сетевые бои.",
+        "category":  "Стратегии"
+    },
+    {
+        "id":  "raven_shield",
+        "name":  "Rainbow Six 3: Raven Shield",
+        "executables":  [
+                            "RavenShield.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Ubisoft\\Raven Shield",
+                              "C:\\Games\\Raven Shield"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Raven Shield",
+        "launch_args":  "",
+        "description":  "Тактический шутер, кооператив по сети.",
+        "category":  "Шутеры"
+    },
+    {
+        "id":  "rome_total_war",
+        "name":  "Rome: Total War",
+        "executables":  [
+                            "RomeTW.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Rome Total War Gold",
+                              "C:\\Games\\Rome Total War"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\My Games\\Rome Total War",
+        "launch_args":  "",
+        "description":  "Античные битвы и кампании по сети.",
+        "category":  "Стратегии"
+    },
+    {
+        "id":  "swbf2",
+        "name":  "Star Wars: Battlefront II",
+        "executables":  [
+                            "BattlefrontII.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\LucasArts\\Star Wars Battlefront II",
+                              "C:\\Games\\SW Battlefront II"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Star Wars Battlefront II",
+        "launch_args":  "",
+        "description":  "Сетевые сражения по «Звёздным войнам».",
+        "category":  "Шутеры"
+    },
+    {
+        "id":  "settlers3",
+        "name":  "The Settlers III",
+        "executables":  [
+                            "Settlers3.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Blue Byte\\Settlers 3",
+                              "C:\\Games\\Settlers 3"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Settlers III",
+        "launch_args":  "",
+        "description":  "Экономическая стратегия, сетевые партии.",
+        "category":  "Стратегии"
+    },
+    {
+        "id":  "settlers4",
+        "name":  "The Settlers IV",
+        "executables":  [
+                            "Settlers4.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Blue Byte\\Settlers 4",
+                              "C:\\Games\\Settlers 4"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Settlers IV",
+        "launch_args":  "",
+        "description":  "Строительство и войны, сеть.",
+        "category":  "Стратегии"
+    },
+    {
+        "id":  "spellforce",
+        "name":  "SpellForce: The Order of Dawn",
+        "executables":  [
+                            "SpellForce.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\SpellForce",
+                              "C:\\Games\\SpellForce"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\SpellForce",
+        "launch_args":  "",
+        "description":  "RPG и RTS в одном, кооператив.",
+        "category":  "Стратегии"
+    },
+    {
+        "id":  "stronghold2",
+        "name":  "Stronghold 2",
+        "executables":  [
+                            "Stronghold2.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Firefly Studios\\Stronghold 2",
+                              "C:\\Games\\Stronghold 2"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Stronghold 2",
+        "launch_args":  "",
+        "description":  "Осады замков, сетевые битвы.",
+        "category":  "Стратегии"
+    },
+    {
+        "id":  "total_annihilation",
+        "name":  "Total Annihilation",
+        "executables":  [
+                            "totala.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Total Annihilation",
+                              "C:\\Games\\Total Annihilation"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Total Annihilation",
+        "launch_args":  "",
+        "description":  "Масштабная RTS о войне роботов.",
+        "category":  "Стратегии"
+    },
+    {
+        "id":  "dow",
+        "name":  "Warhammer 40,000: Dawn of War",
+        "executables":  [
+                            "DarkCrusade.exe",
+                            "W40k.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\THQ\\Dawn of War - Dark Crusade",
+                              "C:\\Games\\Dawn of War"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\My Games\\Dawn of War",
+        "launch_args":  "",
+        "description":  "RTS во вселенной Warhammer 40k, сеть.",
+        "category":  "Стратегии"
+    },
+    {
+        "id":  "warlords3",
+        "name":  "Warlords Battlecry III",
+        "executables":  [
+                            "WBC3.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Warlords Battlecry III",
+                              "C:\\Games\\Warlords Battlecry III"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Warlords Battlecry III",
+        "launch_args":  "",
+        "description":  "RTS с героями, сетевое сражение.",
+        "category":  "Стратегии"
+    },
+    {
+        "id":  "worms_armageddon",
+        "name":  "Worms: Armageddon",
+        "executables":  [
+                            "WA.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Worms Armageddon",
+                              "C:\\Games\\Worms Armageddon"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Worms Armageddon",
+        "launch_args":  "",
+        "description":  "Пошаговые червячьи войны, сеть.",
+        "category":  "Пошаговые"
+    },
+    {
+        "id":  "warzone2100",
+        "name":  "Warzone 2100",
+        "executables":  [
+                            "warzone2100.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files\\Warzone 2100",
+                              "C:\\Games\\Warzone 2100"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Warzone 2100",
+        "launch_args":  "",
+        "description":  "Бесплатная 3D-RTS с сетевыми боями.",
+        "category":  "Стратегии"
+    },
+    {
+        "id":  "xwing_alliance",
+        "name":  "X-Wing Alliance",
+        "executables":  [
+                            "XWingAlliance.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\LucasArts\\X-Wing Alliance",
+                              "C:\\Games\\X-Wing Alliance"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\X-Wing Alliance",
+        "launch_args":  "",
+        "description":  "Космический симулятор по «Звёздным войнам».",
+        "category":  "Симуляторы"
+    },
+    {
+        "id":  "serious_sam",
+        "name":  "Serious Sam: The First Encounter",
+        "executables":  [
+                            "SeriousSam.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Serious Sam",
+                              "C:\\Games\\Serious Sam"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\SeriousSam",
+        "launch_args":  "",
+        "description":  "Безумный шутер, кооператив по сети.",
+        "category":  "Шутеры"
+    },
+    {
+        "id":  "kohan2",
+        "name":  "Kohan II: Kings of War",
+        "executables":  [
+                            "kohan2.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Kohan II",
+                              "C:\\Games\\Kohan II"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Kohan II",
+        "launch_args":  "",
+        "description":  "Нестандартная RTS с сетевыми партиями.",
+        "category":  "Стратегии"
+    },
+    {
+        "id":  "ground_control2",
+        "name":  "Ground Control II",
+        "executables":  [
+                            "GroundControl2.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Ground Control II",
+                              "C:\\Games\\Ground Control II"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Ground Control II",
+        "launch_args":  "",
+        "description":  "Тактическая RTS без строительства.",
+        "category":  "Стратегии"
+    },
+    {
+        "id":  "operation_flashpoint",
+        "name":  "Operation Flashpoint: Cold War Crisis",
+        "executables":  [
+                            "OFP.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Codemasters\\Operation Flashpoint",
+                              "C:\\Games\\Operation Flashpoint"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\OperationFlashpoint",
+        "launch_args":  "",
+        "description":  "Военный симулятор с сетевыми миссиями.",
+        "category":  "Шутеры"
+    },
+    {
+        "id":  "painkiller",
+        "name":  "Painkiller",
+        "executables":  [
+                            "Painkiller.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\DreamCatcher\\Painkiller",
+                              "C:\\Games\\Painkiller"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Painkiller",
+        "launch_args":  "",
+        "description":  "Мясной шутер, кооператив и deathmatch.",
+        "category":  "Шутеры"
+    },
+    {
+        "id":  "imperialism2",
+        "name":  "Imperialism II",
+        "executables":  [
+                            "IMPER2.EXE"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Imperialism II",
+                              "C:\\Games\\Imperialism II"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\Imperialism II",
+        "launch_args":  "",
+        "description":  "Экономическая стратегия эпохи открытий.",
+        "category":  "Пошаговые"
+    },
+    {
+        "id":  "bt1",
+        "name":  "В тылу врага (Soldiers: Heroes of WWII)",
+        "executables":  [
+                            "Soldiers.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\1C\\В тылу врага",
+                              "C:\\Games\\В тылу врага"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\My Games\\Soldiers",
+        "launch_args":  "",
+        "description":  "Первая часть серии: тактика Второй мировой, сетевые бои и кооп.",
+        "category":  "Стратегии"
+    },
+    {
+        "id":  "bt2",
+        "name":  "В тылу врага 2 (Faces of War)",
+        "executables":  [
+                            "FacesOfWar.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\1C\\В тылу врага 2",
+                              "C:\\Games\\В тылу врага 2"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\My Games\\Faces of War",
+        "launch_args":  "",
+        "description":  "Вторая часть: разрушаемые дома, дуэли и кооператив.",
+        "category":  "Стратегии"
+    },
+    {
+        "id":  "bt3",
+        "name":  "В тылу врага 2: Лис пустыни (Men of War)",
+        "executables":  [
+                            "mow.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\1C\\В тылу врага 2 Лис пустыни",
+                              "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Men of War"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\My Games\\Men of War",
+        "launch_args":  "",
+        "description":  "Самая популярная часть серии для сетевых боёв — прямое управление техникой.",
+        "category":  "Стратегии"
+    },
+    {
+        "id":  "bt4",
+        "name":  "В тылу врага: Штурм 2 (Assault Squad 2)",
+        "executables":  [
+                            "mowas2.exe",
+                            "Men of War Assault Squad 2.exe"
+                        ],
+        "default_paths":  [
+                              "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Men of War Assault Squad 2",
+                              "C:\\Program Files (x86)\\1C\\В тылу врага Штурм 2"
+                          ],
+        "save_dir":  "%USERPROFILE%\\Documents\\My Games\\Men of War Assault Squad 2",
+        "launch_args":  "",
+        "description":  "Современный мультиплеер серии: бои 8 на 8 и кооп.",
+        "category":  "Стратегии"
+    }
+]

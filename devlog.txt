@@ -1,0 +1,571 @@
+
+> game-launcher@1.0.0 tauri
+> tauri dev
+
+     Running BeforeDevCommand (`npm run dev`)
+
+> game-launcher@1.0.0 dev
+> vite
+
+
+  [32m[1mVITE[22m v5.4.21[39m  [2mready in [0m[1m1082[22m[2m[0m ms[22m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m1420[22m/[39m
+[2m  [32m➜[39m  [1mNetwork[22m[2m: use [22m[1m--host[22m[2m to expose[22m
+        Info Watching C:\Users\demon\OneDrive\Документы\MultiTool\HomeChats\Chat-19\game-launcher\src-tauri for changes...
+[1m[92m   Compiling[0m game-launcher v1.3.0 (C:\Users\demon\OneDrive\Документы\MultiTool\HomeChats\Chat-19\game-launcher\src-tauri)
+[1m[96m    Building[0m [=======================> ] 431/434: game-la…[1m[96m    Building[0m [=======================> ] 432/434: game-la…[1m[96m    Building[0m [=======================> ] 433/434: game-la…                                                            [1m[93mwarning[0m[1m[97m: use of deprecated method `tungstenite::WebSocket::<Stream>::read_message`: Use `read`[0m
+   [1m[96m--> [0msrc\online.rs:419:22
+    [1m[96m|[0m
+[1m[96m419[0m [1m[96m|[0m         match socket.read_message() {
+    [1m[96m|[0m                      [1m[93m^^^^^^^^^^^^[0m
+    [1m[96m|[0m
+    [1m[96m= [0m[1m[97mnote[0m: `#[warn(deprecated)]` on by default
+
+[1m[96m    Building[0m [=======================> ] 433/434: game-la…                                                            [1m[93mwarning[0m[1m[97m: value assigned to `registered` is never read[0m
+   [1m[96m--> [0msrc\chat.rs:151:21
+    [1m[96m|[0m
+[1m[96m151[0m [1m[96m|[0m                     registered = false;
+    [1m[96m|[0m                     [1m[93m^^^^^^^^^^^^^^^^^^[0m
+    [1m[96m|[0m
+    [1m[96m= [0m[1m[97mhelp[0m: maybe it is overwritten before being read?
+    [1m[96m= [0m[1m[97mnote[0m: `#[warn(unused_assignments)]` (part of `#[warn(unused)]`) on by default
+
+[1m[96m    Building[0m [=======================> ] 433/434: game-la…                                                            [1m[93mwarning[0m[1m[97m: function `random_nonce` is never used[0m
+ [1m[96m--> [0msrc\crypto.rs:7:4
+  [1m[96m|[0m
+[1m[96m7[0m [1m[96m|[0m fn random_nonce() -> [u8; 12] {
+  [1m[96m|[0m    [1m[93m^^^^^^^^^^^^[0m
+  [1m[96m|[0m
+  [1m[96m= [0m[1m[97mnote[0m: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+[1m[93mwarning[0m[1m[97m: function `encrypt_pii` is never used[0m
+  [1m[96m--> [0msrc\crypto.rs:15:8
+   [1m[96m|[0m
+[1m[96m15[0m [1m[96m|[0m pub fn encrypt_pii(data: &[u8], key: &[u8; 32]) -> Vec<u8> {
+   [1m[96m|[0m        [1m[93m^^^^^^^^^^^[0m
+
+[1m[93mwarning[0m[1m[97m: function `decrypt_pii` is never used[0m
+  [1m[96m--> [0msrc\crypto.rs:31:8
+   [1m[96m|[0m
+[1m[96m31[0m [1m[96m|[0m pub fn decrypt_pii(data: &[u8], key: &[u8; 32]) -> Vec<u8> {
+   [1m[96m|[0m        [1m[93m^^^^^^^^^^^[0m
+
+[1m[96m    Building[0m [=======================> ] 433/434: game-la…                                                            [1m[93mwarning[0m[1m[97m: function `get_encryption_key` is never used[0m
+  [1m[96m--> [0msrc\crypto.rs:47:8
+   [1m[96m|[0m
+[1m[96m47[0m [1m[96m|[0m pub fn get_encryption_key() -> [u8; 32] {
+   [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^^^^^[0m
+
+[1m[93mwarning[0m[1m[97m: function `key_file_path` is never used[0m
+  [1m[96m--> [0msrc\crypto.rs:60:4
+   [1m[96m|[0m
+[1m[96m60[0m [1m[96m|[0m fn key_file_path() -> std::path::PathBuf {
+   [1m[96m|[0m    [1m[93m^^^^^^^^^^^^^[0m
+
+[1m[96m    Building[0m [=======================> ] 433/434: game-la…                                                            [1m[93mwarning[0m[1m[97m: function `persist_or_load_key` is never used[0m
+  [1m[96m--> [0msrc\crypto.rs:67:4
+   [1m[96m|[0m
+[1m[96m67[0m [1m[96m|[0m fn persist_or_load_key() -> [u8; 32] {
+   [1m[96m|[0m    [1m[93m^^^^^^^^^^^^^^^^^^^[0m
+
+[1m[93mwarning[0m[1m[97m: function `check_port` is never used[0m
+  [1m[96m--> [0msrc\lanplay.rs:69:8
+   [1m[96m|[0m
+[1m[96m69[0m [1m[96m|[0m pub fn check_port(host: &str, port: u16) -> Result<bool, String> {
+   [1m[96m|[0m        [1m[93m^^^^^^^^^^[0m
+
+[1m[96m    Building[0m [=======================> ] 433/434: game-la…                                                            [1m[93mwarning[0m[1m[97m: struct `User` is never constructed[0m
+  [1m[96m--> [0msrc\online.rs:18:12
+   [1m[96m|[0m
+[1m[96m18[0m [1m[96m|[0m pub struct User {
+   [1m[96m|[0m            [1m[93m^^^^[0m
+
+[1m[93mwarning[0m[1m[97m: struct `Store` is never constructed[0m
+  [1m[96m--> [0msrc\online.rs:33:8
+   [1m[96m|[0m
+[1m[96m33[0m [1m[96m|[0m struct Store {
+   [1m[96m|[0m        [1m[93m^^^^^[0m
+
+[1m[93mwarning[0m[1m[97m: struct `State` is never constructed[0m
+  [1m[96m--> [0msrc\online.rs:38:8
+   [1m[96m|[0m
+[1m[96m38[0m [1m[96m|[0m struct State {
+   [1m[96m|[0m        [1m[93m^^^^^[0m
+
+[1m[96m    Building[0m [=======================> ] 433/434: game-la…                                                            [1m[93mwarning[0m[1m[97m: static `STATE` is never used[0m
+  [1m[96m--> [0msrc\online.rs:43:8
+   [1m[96m|[0m
+[1m[96m43[0m [1m[96m|[0m static STATE: OnceLock<Arc<Mutex<State>>> = OnceLock::new();
+   [1m[96m|[0m        [1m[93m^^^^^[0m
+
+[1m[93mwarning[0m[1m[97m: static `STARTED` is never used[0m
+  [1m[96m--> [0msrc\online.rs:44:8
+   [1m[96m|[0m
+[1m[96m44[0m [1m[96m|[0m static STARTED: OnceLock<()> = OnceLock::new();
+   [1m[96m|[0m        [1m[93m^^^^^^^[0m
+
+[1m[96m    Building[0m [=======================> ] 433/434: game-la…                                                            [1m[93mwarning[0m[1m[97m: function `data_path` is never used[0m
+  [1m[96m--> [0msrc\online.rs:47:4
+   [1m[96m|[0m
+[1m[96m47[0m [1m[96m|[0m fn data_path() -> PathBuf {
+   [1m[96m|[0m    [1m[93m^^^^^^^^^[0m
+
+[1m[93mwarning[0m[1m[97m: function `load_store` is never used[0m
+  [1m[96m--> [0msrc\online.rs:54:4
+   [1m[96m|[0m
+[1m[96m54[0m [1m[96m|[0m fn load_store() -> Store {
+   [1m[96m|[0m    [1m[93m^^^^^^^^^^[0m
+
+[1m[96m    Building[0m [=======================> ] 433/434: game-la…                                                            [1m[93mwarning[0m[1m[97m: function `save_store` is never used[0m
+  [1m[96m--> [0msrc\online.rs:70:4
+   [1m[96m|[0m
+[1m[96m70[0m [1m[96m|[0m fn save_store(store: &Store) {
+   [1m[96m|[0m    [1m[93m^^^^^^^^^^[0m
+
+[1m[93mwarning[0m[1m[97m: function `encode_hex` is never used[0m
+  [1m[96m--> [0msrc\online.rs:86:4
+   [1m[96m|[0m
+[1m[96m86[0m [1m[96m|[0m fn encode_hex(bytes: &[u8]) -> String {
+   [1m[96m|[0m    [1m[93m^^^^^^^^^^[0m
+
+[1m[93mwarning[0m[1m[97m: function `decode_hex` is never used[0m
+  [1m[96m--> [0msrc\online.rs:94:4
+   [1m[96m|[0m
+[1m[96m94[0m [1m[96m|[0m fn decode_hex(text: &str) -> Vec<u8> {
+   [1m[96m|[0m    [1m[93m^^^^^^^^^^[0m
+
+[1m[93mwarning[0m[1m[97m: function `new_salt` is never used[0m
+   [1m[96m--> [0msrc\online.rs:107:4
+    [1m[96m|[0m
+[1m[96m107[0m [1m[96m|[0m fn new_salt() -> String {
+    [1m[96m|[0m    [1m[93m^^^^^^^^[0m
+
+[1m[93mwarning[0m[1m[97m: function `new_token` is never used[0m
+   [1m[96m--> [0msrc\online.rs:113:4
+    [1m[96m|[0m
+[1m[96m113[0m [1m[96m|[0m fn new_token() -> String {
+    [1m[96m|[0m    [1m[93m^^^^^^^^^[0m
+
+[1m[96m    Building[0m [=======================> ] 433/434: game-la…                                                            [1m[93mwarning[0m[1m[97m: function `hash_password` is never used[0m
+   [1m[96m--> [0msrc\online.rs:119:4
+    [1m[96m|[0m
+[1m[96m119[0m [1m[96m|[0m fn hash_password(password: &str, salt_hex: &str) -> String {
+    [1m[96m|[0m    [1m[93m^^^^^^^^^^^^^[0m
+
+[1m[93mwarning[0m[1m[97m: function `verify_password` is never used[0m
+   [1m[96m--> [0msrc\online.rs:127:4
+    [1m[96m|[0m
+[1m[96m127[0m [1m[96m|[0m fn verify_password(password: &str, user: &User) -> bool {
+    [1m[96m|[0m    [1m[93m^^^^^^^^^^^^^^^[0m
+
+[1m[93mwarning[0m[1m[97m: function `valid_name` is never used[0m
+   [1m[96m--> [0msrc\online.rs:131:4
+    [1m[96m|[0m
+[1m[96m131[0m [1m[96m|[0m fn valid_name(name: &str) -> bool {
+    [1m[96m|[0m    [1m[93m^^^^^^^^^^[0m
+
+[1m[93mwarning[0m[1m[97m: function `public_user` is never used[0m
+   [1m[96m--> [0msrc\online.rs:139:4
+    [1m[96m|[0m
+[1m[96m139[0m [1m[96m|[0m fn public_user(user: &User) -> Value {
+    [1m[96m|[0m    [1m[93m^^^^^^^^^^^[0m
+
+[1m[93mwarning[0m[1m[97m: function `friends_of` is never used[0m
+   [1m[96m--> [0msrc\online.rs:143:4
+    [1m[96m|[0m
+[1m[96m143[0m [1m[96m|[0m fn friends_of(state: &State, name: &str) -> Vec<String> {
+    [1m[96m|[0m    [1m[93m^^^^^^^^^^[0m
+
+[1m[96m    Building[0m [=======================> ] 433/434: game-la…                                                            [1m[93mwarning[0m[1m[97m: function `send_to` is never used[0m
+   [1m[96m--> [0msrc\online.rs:158:4
+    [1m[96m|[0m
+[1m[96m158[0m [1m[96m|[0m fn send_to(state: &State, name: &str, payload: &Value) {
+    [1m[96m|[0m    [1m[93m^^^^^^^[0m
+
+[1m[93mwarning[0m[1m[97m: function `send_friends` is never used[0m
+   [1m[96m--> [0msrc\online.rs:164:4
+    [1m[96m|[0m
+[1m[96m164[0m [1m[96m|[0m fn send_friends(state: &State, name: &str) {
+    [1m[96m|[0m    [1m[93m^^^^^^^^^^^^[0m
+
+[1m[96m    Building[0m [=======================> ] 433/434: game-la…                                                            [1m[93mwarning[0m[1m[97m: function `notify_friends` is never used[0m
+   [1m[96m--> [0msrc\online.rs:173:4
+    [1m[96m|[0m
+[1m[96m173[0m [1m[96m|[0m fn notify_friends(state: &State, name: &str, payload: &Value) {
+    [1m[96m|[0m    [1m[93m^^^^^^^^^^^^^^[0m
+
+[1m[93mwarning[0m[1m[97m: function `auth_ok` is never used[0m
+   [1m[96m--> [0msrc\online.rs:179:4
+    [1m[96m|[0m
+[1m[96m179[0m [1m[96m|[0m fn auth_ok(state: &mut State, conn_user: &mut Option<String>, tx: &Sender<String>, name: &str) {
+    [1m[96m|[0m    [1m[93m^^^^^^^[0m
+
+[1m[96m    Building[0m [=======================> ] 433/434: game-la…                                                            [1m[93mwarning[0m[1m[97m: function `handle` is never used[0m
+   [1m[96m--> [0msrc\online.rs:217:4
+    [1m[96m|[0m
+[1m[96m217[0m [1m[96m|[0m fn handle(state: &mut State, conn_user: &mut Option<String>, tx: &Sender<String>, text: &str) {
+    [1m[96m|[0m    [1m[93m^^^^^^[0m
+
+[1m[93mwarning[0m[1m[97m: function `connection` is never used[0m
+   [1m[96m--> [0msrc\online.rs:393:4
+    [1m[96m|[0m
+[1m[96m393[0m [1m[96m|[0m fn connection(shared: Arc<Mutex<State>>, stream: TcpStream) {
+    [1m[96m|[0m    [1m[93m^^^^^^^^^^[0m
+
+[1m[96m    Building[0m [=======================> ] 433/434: game-la…                                                            [1m[93mwarning[0m[1m[97m: function `start` is never used[0m
+   [1m[96m--> [0msrc\online.rs:457:8
+    [1m[96m|[0m
+[1m[96m457[0m [1m[96m|[0m pub fn start() {
+    [1m[96m|[0m        [1m[93m^^^^^[0m
+
+[1m[93mwarning[0m[1m[97m: function `custom_exe_path` is never used[0m
+  [1m[96m--> [0msrc\retro.rs:62:8
+   [1m[96m|[0m
+[1m[96m62[0m [1m[96m|[0m pub fn custom_exe_path(game_id: &str) -> Option<PathBuf> {
+   [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^^[0m
+
+[1m[96m    Building[0m [=======================> ] 433/434: game-la…                                                            [1m[93mwarning[0m[1m[97m: function `is_custom` is never used[0m
+   [1m[96m--> [0msrc\retro.rs:190:8
+    [1m[96m|[0m
+[1m[96m190[0m [1m[96m|[0m pub fn is_custom(id: &str) -> bool {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^[0m
+
+[1m[93mwarning[0m[1m[97m: function `active_compat_layer` is never used[0m
+   [1m[96m--> [0msrc\retro.rs:355:8
+    [1m[96m|[0m
+[1m[96m355[0m [1m[96m|[0m pub fn active_compat_layer(game_id: &str) -> String {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^^^^^^[0m
+
+[1m[96m    Building[0m [=======================> ] 433/434: game-la…                                                            [1m[93mwarning[0m[1m[97m: fields `win_xp` and `win98` are never read[0m
+   [1m[96m--> [0msrc\retro.rs:362:9
+    [1m[96m|[0m
+[1m[96m359[0m [1m[96m|[0m pub struct CompatOptions {
+    [1m[96m|[0m            [1m[96m-------------[0m [1m[96mfields in this struct[0m
+[1m[96m...[0m
+[1m[96m362[0m [1m[96m|[0m     pub win_xp: bool,
+    [1m[96m|[0m         [1m[93m^^^^^^[0m
+[1m[96m363[0m [1m[96m|[0m     pub win98: bool,
+    [1m[96m|[0m         [1m[93m^^^^^[0m
+
+[1m[96m    Building[0m [=======================> ] 433/434: game-la…                                                            [1m[93mwarning[0m: `game-launcher` (bin "game-launcher") generated 37 warnings
+[1m[92m    Finished[0m `dev` profile [unoptimized + debuginfo] target(s) in 15.45s
+20:54:34 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/App.svelte:646:6 A11y: <div> with mousedown handler must have an ARIA role
+20:54:34 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/App.svelte:1360:2 Unused CSS selector ".tb-btn svg"
+        Info File src-tauri\Cargo.toml changed. Rebuilding application...
+20:54:34 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/Wallet.svelte:412:2 Unused CSS selector ".wall-hint strong"
+20:54:34 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/Wallet.svelte:413:2 Unused CSS selector ".wall-hint ul"
+20:54:34 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/Wallet.svelte:414:2 Unused CSS selector ".wall-hint li"
+20:54:34 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/Wallet.svelte:441:2 Unused CSS selector ".btn-mini"
+20:54:34 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/Wallet.svelte:454:2 Unused CSS selector ".btn-mini:hover"
+20:54:34 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/Wallet.svelte:455:2 Unused CSS selector ".btn-mini:disabled"
+20:54:34 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/Wallet.svelte:466:2 Unused CSS selector ".coin-status"
+20:54:34 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/Wallet.svelte:473:2 Unused CSS selector ".coin-status.ok"
+20:54:34 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/Wallet.svelte:474:2 Unused CSS selector ".coin-status.bad"
+20:54:35 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/News.svelte:180:16 A11y: visible, non-interactive elements with an on:click event must be accompanied by a keyboard event handler. Consider whether an interactive element such as <button type="button"> or <a> might be more appropriate. See https://svelte.dev/docs/accessibility-warnings#a11y-click-events-have-key-events for more details.
+20:54:35 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/News.svelte:180:16 A11y: <div> with click handler must have an ARIA role
+20:54:35 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/News.svelte:211:14 A11y: visible, non-interactive elements with an on:click event must be accompanied by a keyboard event handler. Consider whether an interactive element such as <button type="button"> or <a> might be more appropriate. See https://svelte.dev/docs/accessibility-warnings#a11y-click-events-have-key-events for more details.
+20:54:35 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/News.svelte:211:14 A11y: <div> with click handler must have an ARIA role
+20:54:35 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/News.svelte:243:4 A11y: visible, non-interactive elements with an on:click event must be accompanied by a keyboard event handler. Consider whether an interactive element such as <button type="button"> or <a> might be more appropriate. See https://svelte.dev/docs/accessibility-warnings#a11y-click-events-have-key-events for more details.
+20:54:35 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/News.svelte:243:4 A11y: <div> with click handler must have an ARIA role
+20:54:35 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/News.svelte:250:8 A11y: A form label must be associated with a control.
+20:54:35 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/News.svelte:255:8 A11y: A form label must be associated with a control.
+[1m[92m   Compiling[0m game-launcher v1.3.0 (C:\Users\demon\OneDrive\Документы\MultiTool\HomeChats\Chat-19\game-launcher\src-tauri)
+[1m[96m    Building[0m [=======================> ] 433/434: game-la…20:54:35 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/ServersMonitor.svelte:1292:2 Unused CSS selector ".wallet-bal"
+20:54:35 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/ServersMonitor.svelte:1293:2 Unused CSS selector ".wallet-bal span"
+20:54:35 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/ServersMonitor.svelte:1294:2 Unused CSS selector ".wallet .muted"
+20:54:35 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/ServersMonitor.svelte:1295:2 Unused CSS selector ".wallet-packs"
+20:54:35 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/ServersMonitor.svelte:1296:2 Unused CSS selector ".pack"
+20:54:35 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/ServersMonitor.svelte:1310:2 Unused CSS selector ".pack strong"
+20:54:35 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/ServersMonitor.svelte:1311:2 Unused CSS selector ".pack span"
+20:54:35 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/ServersMonitor.svelte:1312:2 Unused CSS selector ".pack:hover:not(:disabled)"
+20:54:35 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/ServersMonitor.svelte:1313:2 Unused CSS selector ".pack:disabled"
+20:54:35 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/ServersMonitor.svelte:1518:2 Unused CSS selector ".meta-item.muted"
+20:54:35 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/ServersMonitor.svelte:1602:2 Unused CSS selector ".copy-addr"
+20:54:35 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/ServersMonitor.svelte:1603:2 Unused CSS selector ".copy-addr:hover"
+20:54:35 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/ServersMonitor.svelte:1619:2 Unused CSS selector ".srv-players"
+20:54:35 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/ServersMonitor.svelte:1620:2 Unused CSS selector ".srv-players strong"
+20:54:35 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/ServersMonitor.svelte:1621:2 Unused CSS selector ".desc"
+                                                            [1m[93mwarning[0m[1m[97m: use of deprecated method `tungstenite::WebSocket::<Stream>::read_message`: Use `read`[0m
+   [1m[96m--> [0msrc\online.rs:419:22
+    [1m[96m|[0m
+[1m[96m419[0m [1m[96m|[0m         match socket.read_message() {
+    [1m[96m|[0m                      [1m[93m^^^^^^^^^^^^[0m
+    [1m[96m|[0m
+    [1m[96m= [0m[1m[97mnote[0m: `#[warn(deprecated)]` on by default
+
+[1m[96m    Building[0m [=======================> ] 433/434: game-la…                                                            [1m[93mwarning[0m[1m[97m: value assigned to `registered` is never read[0m
+   [1m[96m--> [0msrc\chat.rs:151:21
+    [1m[96m|[0m
+[1m[96m151[0m [1m[96m|[0m                     registered = false;
+    [1m[96m|[0m                     [1m[93m^^^^^^^^^^^^^^^^^^[0m
+    [1m[96m|[0m
+    [1m[96m= [0m[1m[97mhelp[0m: maybe it is overwritten before being read?
+    [1m[96m= [0m[1m[97mnote[0m: `#[warn(unused_assignments)]` (part of `#[warn(unused)]`) on by default
+
+[1m[96m    Building[0m [=======================> ] 433/434: game-la…                                                            [1m[93mwarning[0m[1m[97m: function `random_nonce` is never used[0m
+ [1m[96m--> [0msrc\crypto.rs:7:4
+  [1m[96m|[0m
+[1m[96m7[0m [1m[96m|[0m fn random_nonce() -> [u8; 12] {
+  [1m[96m|[0m    [1m[93m^^^^^^^^^^^^[0m
+  [1m[96m|[0m
+  [1m[96m= [0m[1m[97mnote[0m: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+[1m[93mwarning[0m[1m[97m: function `encrypt_pii` is never used[0m
+  [1m[96m--> [0msrc\crypto.rs:15:8
+   [1m[96m|[0m
+[1m[96m15[0m [1m[96m|[0m pub fn encrypt_pii(data: &[u8], key: &[u8; 32]) -> Vec<u8> {
+   [1m[96m|[0m        [1m[93m^^^^^^^^^^^[0m
+
+[1m[93mwarning[0m[1m[97m: function `decrypt_pii` is never used[0m
+  [1m[96m--> [0msrc\crypto.rs:31:8
+   [1m[96m|[0m
+[1m[96m31[0m [1m[96m|[0m pub fn decrypt_pii(data: &[u8], key: &[u8; 32]) -> Vec<u8> {
+   [1m[96m|[0m        [1m[93m^^^^^^^^^^^[0m
+
+[1m[96m    Building[0m [=======================> ] 433/434: game-la…                                                            [1m[93mwarning[0m[1m[97m: function `get_encryption_key` is never used[0m
+  [1m[96m--> [0msrc\crypto.rs:47:8
+   [1m[96m|[0m
+[1m[96m47[0m [1m[96m|[0m pub fn get_encryption_key() -> [u8; 32] {
+   [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^^^^^[0m
+
+[1m[93mwarning[0m[1m[97m: function `key_file_path` is never used[0m
+  [1m[96m--> [0msrc\crypto.rs:60:4
+   [1m[96m|[0m
+[1m[96m60[0m [1m[96m|[0m fn key_file_path() -> std::path::PathBuf {
+   [1m[96m|[0m    [1m[93m^^^^^^^^^^^^^[0m
+
+[1m[96m    Building[0m [=======================> ] 433/434: game-la…                                                            [1m[93mwarning[0m[1m[97m: function `persist_or_load_key` is never used[0m
+  [1m[96m--> [0msrc\crypto.rs:67:4
+   [1m[96m|[0m
+[1m[96m67[0m [1m[96m|[0m fn persist_or_load_key() -> [u8; 32] {
+   [1m[96m|[0m    [1m[93m^^^^^^^^^^^^^^^^^^^[0m
+
+[1m[96m    Building[0m [=======================> ] 433/434: game-la…                                                            [1m[93mwarning[0m[1m[97m: function `check_port` is never used[0m
+  [1m[96m--> [0msrc\lanplay.rs:69:8
+   [1m[96m|[0m
+[1m[96m69[0m [1m[96m|[0m pub fn check_port(host: &str, port: u16) -> Result<bool, String> {
+   [1m[96m|[0m        [1m[93m^^^^^^^^^^[0m
+
+[1m[93mwarning[0m[1m[97m: struct `User` is never constructed[0m
+  [1m[96m--> [0msrc\online.rs:18:12
+   [1m[96m|[0m
+[1m[96m18[0m [1m[96m|[0m pub struct User {
+   [1m[96m|[0m            [1m[93m^^^^[0m
+
+[1m[96m    Building[0m [=======================> ] 433/434: game-la…                                                            [1m[93mwarning[0m[1m[97m: struct `Store` is never constructed[0m
+  [1m[96m--> [0msrc\online.rs:33:8
+   [1m[96m|[0m
+[1m[96m33[0m [1m[96m|[0m struct Store {
+   [1m[96m|[0m        [1m[93m^^^^^[0m
+
+[1m[96m    Building[0m [=======================> ] 433/434: game-la…                                                            [1m[93mwarning[0m[1m[97m: struct `State` is never constructed[0m
+  [1m[96m--> [0msrc\online.rs:38:8
+   [1m[96m|[0m
+[1m[96m38[0m [1m[96m|[0m struct State {
+   [1m[96m|[0m        [1m[93m^^^^^[0m
+
+[1m[96m    Building[0m [=======================> ] 433/434: game-la…                                                            [1m[93mwarning[0m[1m[97m: static `STATE` is never used[0m
+  [1m[96m--> [0msrc\online.rs:43:8
+   [1m[96m|[0m
+[1m[96m43[0m [1m[96m|[0m static STATE: OnceLock<Arc<Mutex<State>>> = OnceLock::new();
+   [1m[96m|[0m        [1m[93m^^^^^[0m
+
+[1m[93mwarning[0m[1m[97m: static `STARTED` is never used[0m
+  [1m[96m--> [0msrc\online.rs:44:8
+   [1m[96m|[0m
+[1m[96m44[0m [1m[96m|[0m static STARTED: OnceLock<()> = OnceLock::new();
+   [1m[96m|[0m        [1m[93m^^^^^^^[0m
+
+[1m[96m    Building[0m [=======================> ] 433/434: game-la…                                                            [1m[93mwarning[0m[1m[97m: function `data_path` is never used[0m
+  [1m[96m--> [0msrc\online.rs:47:4
+   [1m[96m|[0m
+[1m[96m47[0m [1m[96m|[0m fn data_path() -> PathBuf {
+   [1m[96m|[0m    [1m[93m^^^^^^^^^[0m
+
+[1m[93mwarning[0m[1m[97m: function `load_store` is never used[0m
+  [1m[96m--> [0msrc\online.rs:54:4
+   [1m[96m|[0m
+[1m[96m54[0m [1m[96m|[0m fn load_store() -> Store {
+   [1m[96m|[0m    [1m[93m^^^^^^^^^^[0m
+
+[1m[93mwarning[0m[1m[97m: function `save_store` is never used[0m
+  [1m[96m--> [0msrc\online.rs:70:4
+   [1m[96m|[0m
+[1m[96m70[0m [1m[96m|[0m fn save_store(store: &Store) {
+   [1m[96m|[0m    [1m[93m^^^^^^^^^^[0m
+
+[1m[96m    Building[0m [=======================> ] 433/434: game-la…                                                            [1m[93mwarning[0m[1m[97m: function `encode_hex` is never used[0m
+  [1m[96m--> [0msrc\online.rs:86:4
+   [1m[96m|[0m
+[1m[96m86[0m [1m[96m|[0m fn encode_hex(bytes: &[u8]) -> String {
+   [1m[96m|[0m    [1m[93m^^^^^^^^^^[0m
+
+[1m[93mwarning[0m[1m[97m: function `decode_hex` is never used[0m
+  [1m[96m--> [0msrc\online.rs:94:4
+   [1m[96m|[0m
+[1m[96m94[0m [1m[96m|[0m fn decode_hex(text: &str) -> Vec<u8> {
+   [1m[96m|[0m    [1m[93m^^^^^^^^^^[0m
+
+[1m[93mwarning[0m[1m[97m: function `new_salt` is never used[0m
+   [1m[96m--> [0msrc\online.rs:107:4
+    [1m[96m|[0m
+[1m[96m107[0m [1m[96m|[0m fn new_salt() -> String {
+    [1m[96m|[0m    [1m[93m^^^^^^^^[0m
+
+[1m[93mwarning[0m[1m[97m: function `new_token` is never used[0m
+   [1m[96m--> [0msrc\online.rs:113:4
+    [1m[96m|[0m
+[1m[96m113[0m [1m[96m|[0m fn new_token() -> String {
+    [1m[96m|[0m    [1m[93m^^^^^^^^^[0m
+
+[1m[96m    Building[0m [=======================> ] 433/434: game-la…                                                            [1m[93mwarning[0m[1m[97m: function `hash_password` is never used[0m
+   [1m[96m--> [0msrc\online.rs:119:4
+    [1m[96m|[0m
+[1m[96m119[0m [1m[96m|[0m fn hash_password(password: &str, salt_hex: &str) -> String {
+    [1m[96m|[0m    [1m[93m^^^^^^^^^^^^^[0m
+
+[1m[93mwarning[0m[1m[97m: function `verify_password` is never used[0m
+   [1m[96m--> [0msrc\online.rs:127:4
+    [1m[96m|[0m
+[1m[96m127[0m [1m[96m|[0m fn verify_password(password: &str, user: &User) -> bool {
+    [1m[96m|[0m    [1m[93m^^^^^^^^^^^^^^^[0m
+
+[1m[96m    Building[0m [=======================> ] 433/434: game-la…                                                            [1m[93mwarning[0m[1m[97m: function `valid_name` is never used[0m
+   [1m[96m--> [0msrc\online.rs:131:4
+    [1m[96m|[0m
+[1m[96m131[0m [1m[96m|[0m fn valid_name(name: &str) -> bool {
+    [1m[96m|[0m    [1m[93m^^^^^^^^^^[0m
+
+[1m[93mwarning[0m[1m[97m: function `public_user` is never used[0m
+   [1m[96m--> [0msrc\online.rs:139:4
+    [1m[96m|[0m
+[1m[96m139[0m [1m[96m|[0m fn public_user(user: &User) -> Value {
+    [1m[96m|[0m    [1m[93m^^^^^^^^^^^[0m
+
+[1m[96m    Building[0m [=======================> ] 433/434: game-la…                                                            [1m[93mwarning[0m[1m[97m: function `friends_of` is never used[0m
+   [1m[96m--> [0msrc\online.rs:143:4
+    [1m[96m|[0m
+[1m[96m143[0m [1m[96m|[0m fn friends_of(state: &State, name: &str) -> Vec<String> {
+    [1m[96m|[0m    [1m[93m^^^^^^^^^^[0m
+
+[1m[93mwarning[0m[1m[97m: function `send_to` is never used[0m
+   [1m[96m--> [0msrc\online.rs:158:4
+    [1m[96m|[0m
+[1m[96m158[0m [1m[96m|[0m fn send_to(state: &State, name: &str, payload: &Value) {
+    [1m[96m|[0m    [1m[93m^^^^^^^[0m
+
+[1m[96m    Building[0m [=======================> ] 433/434: game-la…                                                            [1m[93mwarning[0m[1m[97m: function `send_friends` is never used[0m
+   [1m[96m--> [0msrc\online.rs:164:4
+    [1m[96m|[0m
+[1m[96m164[0m [1m[96m|[0m fn send_friends(state: &State, name: &str) {
+    [1m[96m|[0m    [1m[93m^^^^^^^^^^^^[0m
+
+[1m[93mwarning[0m[1m[97m: function `notify_friends` is never used[0m
+   [1m[96m--> [0msrc\online.rs:173:4
+    [1m[96m|[0m
+[1m[96m173[0m [1m[96m|[0m fn notify_friends(state: &State, name: &str, payload: &Value) {
+    [1m[96m|[0m    [1m[93m^^^^^^^^^^^^^^[0m
+
+[1m[96m    Building[0m [=======================> ] 433/434: game-la…                                                            [1m[93mwarning[0m[1m[97m: function `auth_ok` is never used[0m
+   [1m[96m--> [0msrc\online.rs:179:4
+    [1m[96m|[0m
+[1m[96m179[0m [1m[96m|[0m fn auth_ok(state: &mut State, conn_user: &mut Option<String>, tx: &Sender<String>, name: &str) {
+    [1m[96m|[0m    [1m[93m^^^^^^^[0m
+
+[1m[93mwarning[0m[1m[97m: function `handle` is never used[0m
+   [1m[96m--> [0msrc\online.rs:217:4
+    [1m[96m|[0m
+[1m[96m217[0m [1m[96m|[0m fn handle(state: &mut State, conn_user: &mut Option<String>, tx: &Sender<String>, text: &str) {
+    [1m[96m|[0m    [1m[93m^^^^^^[0m
+
+[1m[96m    Building[0m [=======================> ] 433/434: game-la…                                                            [1m[93mwarning[0m[1m[97m: function `connection` is never used[0m
+   [1m[96m--> [0msrc\online.rs:393:4
+    [1m[96m|[0m
+[1m[96m393[0m [1m[96m|[0m fn connection(shared: Arc<Mutex<State>>, stream: TcpStream) {
+    [1m[96m|[0m    [1m[93m^^^^^^^^^^[0m
+
+[1m[93mwarning[0m[1m[97m: function `start` is never used[0m
+   [1m[96m--> [0msrc\online.rs:457:8
+    [1m[96m|[0m
+[1m[96m457[0m [1m[96m|[0m pub fn start() {
+    [1m[96m|[0m        [1m[93m^^^^^[0m
+
+[1m[96m    Building[0m [=======================> ] 433/434: game-la…                                                            [1m[93mwarning[0m[1m[97m: function `custom_exe_path` is never used[0m
+  [1m[96m--> [0msrc\retro.rs:62:8
+   [1m[96m|[0m
+[1m[96m62[0m [1m[96m|[0m pub fn custom_exe_path(game_id: &str) -> Option<PathBuf> {
+   [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^^[0m
+
+[1m[96m    Building[0m [=======================> ] 433/434: game-la…                                                            [1m[93mwarning[0m[1m[97m: function `is_custom` is never used[0m
+   [1m[96m--> [0msrc\retro.rs:190:8
+    [1m[96m|[0m
+[1m[96m190[0m [1m[96m|[0m pub fn is_custom(id: &str) -> bool {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^[0m
+
+[1m[96m    Building[0m [=======================> ] 433/434: game-la…                                                            [1m[93mwarning[0m[1m[97m: function `active_compat_layer` is never used[0m
+   [1m[96m--> [0msrc\retro.rs:355:8
+    [1m[96m|[0m
+[1m[96m355[0m [1m[96m|[0m pub fn active_compat_layer(game_id: &str) -> String {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^^^^^^[0m
+
+[1m[93mwarning[0m[1m[97m: fields `win_xp` and `win98` are never read[0m
+   [1m[96m--> [0msrc\retro.rs:362:9
+    [1m[96m|[0m
+[1m[96m359[0m [1m[96m|[0m pub struct CompatOptions {
+    [1m[96m|[0m            [1m[96m-------------[0m [1m[96mfields in this struct[0m
+[1m[96m...[0m
+[1m[96m362[0m [1m[96m|[0m     pub win_xp: bool,
+    [1m[96m|[0m         [1m[93m^^^^^^[0m
+[1m[96m363[0m [1m[96m|[0m     pub win98: bool,
+    [1m[96m|[0m         [1m[93m^^^^^[0m
+
+[1m[96m    Building[0m [=======================> ] 433/434: game-la…20:54:36 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/Profile.svelte:1867:20 A11y: visible, non-interactive elements with an on:click event must be accompanied by a keyboard event handler. Consider whether an interactive element such as <button type="button"> or <a> might be more appropriate. See https://svelte.dev/docs/accessibility-warnings#a11y-click-events-have-key-events for more details.
+20:54:37 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/Profile.svelte:1867:20 A11y: <div> with click handler must have an ARIA role
+20:54:37 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/Profile.svelte:1902:18 A11y: visible, non-interactive elements with an on:click event must be accompanied by a keyboard event handler. Consider whether an interactive element such as <button type="button"> or <a> might be more appropriate. See https://svelte.dev/docs/accessibility-warnings#a11y-click-events-have-key-events for more details.
+20:54:37 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/Profile.svelte:1902:18 A11y: <div> with click handler must have an ARIA role
+20:54:37 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/Profile.svelte:2312:4 A11y: visible, non-interactive elements with an on:click event must be accompanied by a keyboard event handler. Consider whether an interactive element such as <button type="button"> or <a> might be more appropriate. See https://svelte.dev/docs/accessibility-warnings#a11y-click-events-have-key-events for more details.
+20:54:37 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/Profile.svelte:2312:4 A11y: <div> with click handler must have an ARIA role
+20:54:37 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/Profile.svelte:2341:4 A11y: visible, non-interactive elements with an on:click event must be accompanied by a keyboard event handler. Consider whether an interactive element such as <button type="button"> or <a> might be more appropriate. See https://svelte.dev/docs/accessibility-warnings#a11y-click-events-have-key-events for more details.
+20:54:37 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/Profile.svelte:2341:4 A11y: <div> with click handler must have an ARIA role
+20:54:37 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/Profile.svelte:2416:4 A11y: visible, non-interactive elements with an on:click event must be accompanied by a keyboard event handler. Consider whether an interactive element such as <button type="button"> or <a> might be more appropriate. See https://svelte.dev/docs/accessibility-warnings#a11y-click-events-have-key-events for more details.
+20:54:37 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/Profile.svelte:2416:4 A11y: <div> with click handler must have an ARIA role
+20:54:37 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/Profile.svelte:2607:2 A11y: visible, non-interactive elements with an on:click event must be accompanied by a keyboard event handler. Consider whether an interactive element such as <button type="button"> or <a> might be more appropriate. See https://svelte.dev/docs/accessibility-warnings#a11y-click-events-have-key-events for more details.
+20:54:37 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/Profile.svelte:2607:2 A11y: <div> with click handler must have an ARIA role
+20:54:37 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/Profile.svelte:62:11 Profile has unused export property 'onOpenServers'. If it is for external reference only, please consider using `export const onOpenServers`
+20:54:37 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/Profile.svelte:2712:2 Unused CSS selector ".card-line h3"
+20:54:37 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/Profile.svelte:2743:2 Unused CSS selector ".hero-avatar img"
+20:54:37 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/Profile.svelte:2757:2 Unused CSS selector ".hero-avatar:hover .hero-avatar-edit"
+20:54:37 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/Profile.svelte:2760:2 Unused CSS selector ".hero-name strong"
+20:54:37 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/Profile.svelte:2843:2 Unused CSS selector ".online-ava:hover .online-face"
+20:54:37 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/Profile.svelte:2857:2 Unused CSS selector ".online-face img"
+20:54:37 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/Profile.svelte:2895:2 Unused CSS selector ".balance-item strong"
+20:54:37 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/Profile.svelte:2896:2 Unused CSS selector ".balance-item .muted"
+20:54:37 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/Profile.svelte:2900:2 Unused CSS selector ".stat-row span"
+20:54:37 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/Profile.svelte:2901:2 Unused CSS selector ".stat-row strong"
+20:54:37 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/Profile.svelte:2924:2 Unused CSS selector ".promo-banner-txt strong"
+20:54:37 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/Profile.svelte:2977:2 Unused CSS selector ".coin-face svg"
+20:54:37 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/Profile.svelte:2977:18 Unused CSS selector ".u-coin svg"
+20:54:37 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/Profile.svelte:2977:31 Unused CSS selector ".badge-chip svg"
+20:54:37 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/Profile.svelte:2979:2 Unused CSS selector ".coin-face.locked svg"
+20:54:37 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/Profile.svelte:3021:2 Unused CSS selector ".coin-row .coin"
+20:54:37 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/Profile.svelte:3022:2 Unused CSS selector ".coin-row .coin.done"
+20:54:37 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/Profile.svelte:3023:2 Unused CSS selector ".coin-row .coin-face"
+20:54:37 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/Profile.svelte:3025:2 Unused CSS selector ".mini-score strong"
+20:54:37 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/Profile.svelte:3478:2 Unused CSS selector ".uavatar img"
+20:54:37 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/Profile.svelte:3481:2 Unused CSS selector ".uname strong"
+20:54:37 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/Profile.svelte:3491:2 Unused CSS selector ".usection-head strong"
+20:54:37 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/Profile.svelte:3496:2 Unused CSS selector ".ustat strong"
+20:54:37 [vite-plugin-svelte] C:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/components/Profile.svelte:3860:2 Unused CSS selector ".dossier-actions .ghost"
+[2m20:54:37[22m [33m[1m[vite][22m[39m [33mwarning: [33mThis case clause will never be evaluated because it duplicates an earlier case clause[33m
+1061|        break;
+1062|      }
+1063|      case 'post_created': {
+   |           ^
+1064|        const g = msg.group ?? null;
+1065|        if (g) {
+[39m
+  Plugin: [35mvite:esbuild[39m
+  File: [36mC:/Users/demon/OneDrive/Документы/MultiTool/HomeChats/Chat-19/game-launcher/src/lib/online.ts[39m
+                                                            [1m[93mwarning[0m: `game-launcher` (bin "game-launcher") generated 37 warnings
+[1m[92m    Finished[0m `dev` profile [unoptimized + debuginfo] target(s) in 4.19s
