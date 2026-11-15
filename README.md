@@ -4,8 +4,7 @@
 
 Стек: Rust (Tauri 1.5), Svelte + TypeScript, Node.js-сервер на WebSocket.
 
-Windows-сборки подписываются через SignPath.io, сертификат предоставлен SignPath Foundation.
-Free code signing provided by [SignPath.io](https://signpath.io), certificate by [SignPath Foundation](https://signpath.org).
+Подпись Windows-сборок запрошена через SignPath Foundation — бесплатную программу для open-source проектов. До одобрения заявки сборки **не подписаны**, поэтому SmartScreen может показать предупреждение при первом запуске.
 
 ## Возможности
 
