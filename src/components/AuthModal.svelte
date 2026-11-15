@@ -51,8 +51,8 @@
       status = 'Укажите имя аккаунта';
       return;
     }
-    if (!/^[a-zA-Z0-9_]{3,20}$/.test(user.trim())) {
-      status = 'Имя аккаунта: 3–20 символов, латиница, цифры или _';
+    if (!/^[A-Za-zА-Яа-яЁё0-9_]{3,20}$/.test(user.trim())) {
+      status = 'Имя аккаунта: 3–20 символов, русские или латинские буквы, цифры или _';
       return;
     }
     if (!pass) {
@@ -180,7 +180,7 @@
       <input
         id="af-user"
         bind:value={user}
-        placeholder="3–20 символов, латиница"
+        placeholder="3–20 символов, русские или латинские"
         maxlength="20"
         spellcheck="false"
         autocomplete="username"

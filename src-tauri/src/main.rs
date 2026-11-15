@@ -383,7 +383,7 @@ fn dev_server_start(cwd: String, data_file: String, port: u16) -> Result<u32, St
         .current_dir(&cwd)
         .env("PORT", port.to_string())
         .env("DATA_FILE", &data_file)
-        .env("ADMIN_NAMES", "admin1")
+        .env("ADMIN_NAMES", "Korona")
         .spawn()
         .map_err(|e| e.to_string())?;
     let pid = child.id();

@@ -180,8 +180,21 @@ function nextUid(user) {
 }
 
 // Находит юзера по нику или по числовому ID (строка из цифр => ID).
+// Ники хранятся как введены ("Корона", "Korona"), но находятся без учёта регистра.
+// Возвращает реальный ключ пользователя либо ник в нижнем регистре, если такого нет.
+function resolveUserName(ref) {
+  const raw = String(ref || '').trim();
+  if (!raw) return '';
+  const lower = raw.toLowerCase();
+  if (db.users[lower]) return lower;
+  for (const key of Object.keys(db.users)) {
+    if (key.toLowerCase() === lower) return key;
+  }
+  return lower;
+}
+
 function userByRef(ref) {
-  const key = String(ref || '').trim().toLowerCase();
+  const key = resolveUserName(ref);
   if (!key) return null;
   if (/^\d+$/.test(key)) {
     const n = Number(key);
@@ -566,11 +579,100 @@ const GIFT_CATEGORIES = [
   { id: 'victory', name: 'День Победы', note: '', icon: '🎖', items: [
     ['🎖','Медаль','epic'],['⭐','Звезда','common'],['🕊','Голубь','rare'],['🏵','Орден','epic'],['🪖','Каска','rare'],['🎆','Салют','legendary'],['⏳','Песочные часы','rare'],['🕯','Свеча памяти','rare'],
   ] },
-  { id: 'frozen', name: 'Ледяная коллекция', note: 'NEW • дешёвые', icon: '❄️', items: [
-    ['❄️','Снежинка','common'],['🧊','Ледяной куб','common'],['🗡','Сосулька','common'],['✴','Ледяная звезда','common'],['💠','Ледяной алмаз','common'],['🌨','Снежный шар','common'],['🗝','Ледяной ключ','common'],['🛡','Ледяной щит','common'],['👑','Ледяная корона','common'],['⚔','Ледяной меч','common'],['💙','Ледяное сердце','common'],['🏆','Ледяной трофей','common'],['🍶','Ледяная бутылка','common'],['🎭','Ледяная маска','common'],['🏮','Ледяной фонарь','common'],['⚓','Ледяной якорь','common'],['❄','Ледяной знак','common'],['⛏','Ледяной топор','common'],['☃️','Снеговик','common'],['🛷','Санки','common'],['🎿','Лыжи','common'],['⛸','Коньки','common'],['❄','Снежный медальон','common'],['🐧','Пингвин','common'],['🐻','Белый медведь','common'],['✸','Снежная звезда','common'],['⛄','Иглу','common'],['🏂','Сноуборд','common'],['⚪','Снежок','common'],['🌲','Снежная ель','common'],['🔔','Снежный колокольчик','common'],['🦉','Полярная сова','common'],['👑','Снежная корона','common'],['☁','Снежное облако','common'],['🧣','Шарф','common'],['🏒','Шайба','common'],['🌸','Морозный цветок','common'],['🥀','Замороженная роза','common'],['🐉','Ледяной дракон','common'],['🪄','Ледяной посох','common'],['👊','Ледяной кулак','common'],['🐦','Ледяной феникс','common'],['🌀','Магический круг льда','common'],['🐺','Ледяной волк','common'],['👑','Морозная корона','common'],['🛡','Морозный щит','common'],['⏳','Морозные часы','common'],['🎼','Ледяная арфа','common'],['🔮','Хрустальный шар','common'],['🏹','Морозный лук','common'],['❄','Морозный знак','common'],['⚔','Морозный клинок','common'],['🕊','Ледяные крылья','common'],['🦉','Морозный страж','common'],['🔮','Хруст. шар','common'],['💎','Скопление крис.','common'],['💙','Хруст. сердце','common'],['⭐','Хруст. звезда','common'],['🔪','Хруст. клинок','common'],['👑','Хруст. корона','common'],['🥚','Хруст. яйцо','common'],['🛡','Хруст. щит','common'],['🪄','Хруст. жезл','common'],['🌸','Хруст. цветок','common'],['🗝','Хруст. ключ','common'],['👑','Хруст. тиара','common'],['⏳','Хруст. часы','common'],['🦉','Хруст. сова','common'],['🐦','Хруст. птица','common'],['⚡','Хруст. молния','common'],['❄','Хруст. снежинка','common'],['🛸','Хруст. корабль','common'],['🦌','Аврора-олень','common'],['🌀','Аврора-сфера','common'],['🦊','Аврора-лис','common'],['🌸','Аврора-цветок','common'],['🌨','Аврора-шар','common'],['🐋','Аврора-кит','common'],['👑','Аврора-корона','common'],['⭐','Аврора-звезда','common'],['🐉','Аврора-дракон','common'],['💙','Аврора-сердце','common'],['⚔','Аврора-меч','common'],['🛡','Аврора-щит','common'],['🌙','Аврора-луна','common'],['🦄','Аврора-пегас','common'],['🪷','Аврора-лотос','common'],['🐺','Аврора-волк','common'],['🔷','Аврора-осколок','common'],['🐦','Аврора-феникс','common'],['⚔','Аврора-клинок','common'],['👑','Аврора-тиара','common'],['❄','Аврора-снежинка','common'],
-  ] },
-
-  { id: 'elemental', name: 'Стихии', note: 'NEW • дешёвые', icon: '🌋', items: [
+  { id: 'new', name: 'Новые подарки', note: 'NEW • дешёвые', icon: '🎁', items: [
+    ['❄️','Снежинка','common'],
+    ['🧊','Ледяной куб','common'],
+    ['🗡','Сосулька','common'],
+    ['✴','Ледяная звезда','common'],
+    ['💠','Ледяной алмаз','common'],
+    ['🌨','Снежный шар','common'],
+    ['🗝','Ледяной ключ','common'],
+    ['🛡','Ледяной щит','common'],
+    ['👑','Ледяная корона','common'],
+    ['⚔','Ледяной меч','common'],
+    ['💙','Ледяное сердце','common'],
+    ['🏆','Ледяной трофей','common'],
+    ['🍶','Ледяная бутылка','common'],
+    ['🎭','Ледяная маска','common'],
+    ['🏮','Ледяной фонарь','common'],
+    ['⚓','Ледяной якорь','common'],
+    ['❄','Ледяной знак','common'],
+    ['⛏','Ледяной топор','common'],
+    ['☃️','Снеговик','common'],
+    ['🛷','Санки','common'],
+    ['🎿','Лыжи','common'],
+    ['⛸','Коньки','common'],
+    ['❄','Снежный медальон','common'],
+    ['🐧','Пингвин','common'],
+    ['🐻','Белый медведь','common'],
+    ['✸','Снежная звезда','common'],
+    ['⛄','Иглу','common'],
+    ['🏂','Сноуборд','common'],
+    ['⚪','Снежок','common'],
+    ['🌲','Снежная ель','common'],
+    ['🔔','Снежный колокольчик','common'],
+    ['🦉','Полярная сова','common'],
+    ['👑','Снежная корона','common'],
+    ['☁','Снежное облако','common'],
+    ['🧣','Шарф','common'],
+    ['🏒','Шайба','common'],
+    ['🌸','Морозный цветок','common'],
+    ['🥀','Замороженная роза','common'],
+    ['🐉','Ледяной дракон','common'],
+    ['🪄','Ледяной посох','common'],
+    ['👊','Ледяной кулак','common'],
+    ['🐦','Ледяной феникс','common'],
+    ['🌀','Магический круг льда','common'],
+    ['🐺','Ледяной волк','common'],
+    ['👑','Морозная корона','common'],
+    ['🛡','Морозный щит','common'],
+    ['⏳','Морозные часы','common'],
+    ['🎼','Ледяная арфа','common'],
+    ['🔮','Хрустальный шар','common'],
+    ['🏹','Морозный лук','common'],
+    ['❄','Морозный знак','common'],
+    ['⚔','Морозный клинок','common'],
+    ['🕊','Ледяные крылья','common'],
+    ['🦉','Морозный страж','common'],
+    ['🔮','Хруст. шар','common'],
+    ['💎','Скопление крис.','common'],
+    ['💙','Хруст. сердце','common'],
+    ['⭐','Хруст. звезда','common'],
+    ['🔪','Хруст. клинок','common'],
+    ['👑','Хруст. корона','common'],
+    ['🥚','Хруст. яйцо','common'],
+    ['🛡','Хруст. щит','common'],
+    ['🪄','Хруст. жезл','common'],
+    ['🌸','Хруст. цветок','common'],
+    ['🗝','Хруст. ключ','common'],
+    ['👑','Хруст. тиара','common'],
+    ['⏳','Хруст. часы','common'],
+    ['🦉','Хруст. сова','common'],
+    ['🐦','Хруст. птица','common'],
+    ['⚡','Хруст. молния','common'],
+    ['❄','Хруст. снежинка','common'],
+    ['🛸','Хруст. корабль','common'],
+    ['🦌','Аврора-олень','common'],
+    ['🌀','Аврора-сфера','common'],
+    ['🦊','Аврора-лис','common'],
+    ['🌸','Аврора-цветок','common'],
+    ['🌨','Аврора-шар','common'],
+    ['🐋','Аврора-кит','common'],
+    ['👑','Аврора-корона','common'],
+    ['⭐','Аврора-звезда','common'],
+    ['🐉','Аврора-дракон','common'],
+    ['💙','Аврора-сердце','common'],
+    ['⚔','Аврора-меч','common'],
+    ['🛡','Аврора-щит','common'],
+    ['🌙','Аврора-луна','common'],
+    ['🦄','Аврора-пегас','common'],
+    ['🪷','Аврора-лотос','common'],
+    ['🐺','Аврора-волк','common'],
+    ['🔷','Аврора-осколок','common'],
+    ['🐦','Аврора-феникс','common'],
+    ['⚔','Аврора-клинок','common'],
+    ['👑','Аврора-тиара','common'],
+    ['❄','Аврора-снежинка','common'],
     ['🔥','Пылающее сердце','common'],
     ['🔥','Огненный феникс','common'],
     ['🔥','Горящий факел','common'],
@@ -652,7 +754,7 @@ const GIFT_CATEGORIES = [
     ['⚙️','Цифровой щит','common'],
     ['⚙️','Кибер-дракон','common'],
     ['⚙️','Голографическая корона','common'],
-    ['⚙️','Дрон дрона','common'],
+    ['⚙️','Дрон','common'],
     ['⚙️','Схема-посох','common'],
     ['⚙️','Кибер-бабочка','common'],
     ['⚙️','Голограф-звезда','common'],
@@ -940,7 +1042,8 @@ function okLogin(name) {
 }
 
 function isAdmin(name) {
-  return db.admins.includes(name);
+  const wanted = String(name || '').toLowerCase();
+  return (db.admins || []).some((item) => String(item).toLowerCase() === wanted);
 }
 
 function voterList(server) {
@@ -2153,7 +2256,7 @@ wss.on('connection', (ws) => {
 
     switch (msg.type) {
       case 'register': {
-        const name = String(msg.user || '').trim().toLowerCase();
+        const name = String(msg.user || '').trim();
         const pass = String(msg.pass || '');
         if (db.meta.maintenance.on) {
           return send(ws, {
@@ -2162,7 +2265,7 @@ wss.on('connection', (ws) => {
             message: db.meta.maintenance.message || '',
           });
         }
-        if (!/^[a-z0-9_]{3,20}$/.test(name)) {
+        if (!/^[A-Za-zА-Яа-яЁё0-9_]{3,20}$/.test(name)) {
           return send(ws, { type: 'auth_fail', reason: 'bad_name' });
         }
         if (!msg.consent) {
@@ -2177,7 +2280,7 @@ if (pass.length < PASS_MIN || pass.length > PASS_MAX) {
         if (isAdmin(name) && pass.length < 10) {
           return send(ws, { type: 'auth_fail', reason: 'weak_admin_pass' });
         }
-        if (db.users[name]) {
+        if (Object.keys(db.users).some((key) => key.toLowerCase() === name.toLowerCase())) {
           return send(ws, { type: 'auth_fail', reason: 'exists' });
         }
         const email = String(msg.email || '').trim().slice(0, 120);
@@ -2227,7 +2330,7 @@ save();
       }
 
       case 'login': {
-        const name = String(msg.user || '').trim().toLowerCase();
+        const name = resolveUserName(msg.user);
         const pass = String(msg.pass || '');
         const ip = ipOf(ws);
         const ipWait = ipBlocked(ip);
@@ -2294,7 +2397,7 @@ save();
 
       case 'friend_add': {
         if (!ws.user) return;
-        const target = String(msg.user || '').trim().toLowerCase();
+        const target = resolveUserName(msg.user);
         if (!db.users[target]) return send(ws, { type: 'error', reason: 'no_user' });
         if (target === ws.user) return send(ws, { type: 'error', reason: 'self' });
         const targetPrivacy = normalizePrivacy(db.users[target].privacy);
@@ -2363,7 +2466,7 @@ sendFriends(ws.user);
 
       case 'friend_request_accept': {
         if (!ws.user) return;
-        const from = String(msg.user || '').trim().toLowerCase();
+        const from = resolveUserName(msg.user);
         const user = db.users[ws.user];
         const sender = db.users[from];
         if (!user || !sender) return;
@@ -2393,7 +2496,7 @@ sendFriends(ws.user);
 
       case 'friend_request_decline': {
         if (!ws.user) return;
-        const from = String(msg.user || '').trim().toLowerCase();
+        const from = resolveUserName(msg.user);
         const user = db.users[ws.user];
         const sender = db.users[from];
         if (user) user.reqIn = (user.reqIn || []).filter((x) => x !== from);
@@ -2405,7 +2508,7 @@ sendFriends(ws.user);
 
       case 'friend_remove': {
         if (!ws.user) return;
-        const target = String(msg.user || '').trim().toLowerCase();
+        const target = resolveUserName(msg.user);
         const user = db.users[ws.user];
         user.friends = user.friends.filter((friend) => friend !== target);
         if (db.users[target]) {
@@ -2421,7 +2524,7 @@ sendFriends(ws.user);
 
 case 'chat': {
         if (!ws.user) return;
-        const to = String(msg.to || '').trim().toLowerCase();
+        const to = resolveUserName(msg.to);
         const text = String(msg.text || '').slice(0, 2000);
         if (!text.trim()) return;
         const sp = spamCheck(ws, text);
@@ -3345,7 +3448,7 @@ ensureListSlots();
         if (!ws.user) return send(ws, { type: 'error', reason: 'auth' });
         const bId = String(msg.id || '');
         const mode = msg.mode === 'to' ? 'to' : 'self';
-        const bTo = String(msg.to || '').trim().toLowerCase();
+        const bTo = resolveUserName(msg.to);
         const bBuyer = db.users[ws.user];
         const bDef = GIFTS.find((g) => g.id === bId);
         if (!bDef) return send(ws, { type: 'error', reason: 'no_gift' });
@@ -3682,7 +3785,7 @@ if (payOrder.status === 'paid') {
 
       case 'admin_grant_coins': {
         if (!ws.user || !isAdmin(ws.user)) return send(ws, { type: 'error', reason: 'forbidden' });
-        const coinUser = String(msg.user || '').trim().toLowerCase();
+        const coinUser = resolveUserName(msg.user);
         const amount = Math.round(Number(msg.amount) || 0);
         const target = db.users[coinUser];
         if (!target) return send(ws, { type: 'error', reason: 'no_user' });
@@ -3705,7 +3808,7 @@ if (payOrder.status === 'paid') {
 
       case 'admin_user_patch': {
         if (!ws.user || !isAdmin(ws.user)) return send(ws, { type: 'error', reason: 'forbidden' });
-        const patchUser = String(msg.user || '').trim().toLowerCase();
+        const patchUser = resolveUserName(msg.user);
         const entry = db.users[patchUser];
         if (!entry) return send(ws, { type: 'error', reason: 'no_user' });
         const patch = msg.patch && typeof msg.patch === 'object' ? msg.patch : null;
@@ -4138,7 +4241,7 @@ if (payOrder.status === 'paid') {
 
       case 'offer_send': {
         if (!ws.user) return;
-        const to = String(msg.to || '').trim().toLowerCase();
+        const to = resolveUserName(msg.to);
         const name = String(msg.name || '').trim().slice(0, 60);
         const address = String(msg.address || '').trim().slice(0, 90);
         const game = String(msg.game || '').trim().slice(0, 40);
@@ -4256,7 +4359,7 @@ if (payOrder.status === 'paid') {
         if (!ws.user || !isAdmin(ws.user)) {
           return send(ws, { type: 'error', reason: 'forbidden' });
         }
-        const target = String(msg.user || '').trim().toLowerCase();
+        const target = resolveUserName(msg.user);
         if (!db.users[target]) return send(ws, { type: 'error', reason: 'no_user' });
         if (target === ws.user) return send(ws, { type: 'error', reason: 'self' });
         if (isAdmin(target)) return send(ws, { type: 'error', reason: 'target_admin' });
@@ -4281,7 +4384,7 @@ if (payOrder.status === 'paid') {
         if (!ws.user || !isAdmin(ws.user)) {
           return send(ws, { type: 'error', reason: 'forbidden' });
         }
-        const target = String(msg.user || '').trim().toLowerCase();
+        const target = resolveUserName(msg.user);
         if (!db.users[target]) return send(ws, { type: 'error', reason: 'no_user' });
         if (target === ws.user) return send(ws, { type: 'error', reason: 'self' });
         const sock = sockets.get(target);
@@ -4302,7 +4405,7 @@ if (payOrder.status === 'paid') {
         if (!ws.user || !isAdmin(ws.user)) {
           return send(ws, { type: 'error', reason: 'forbidden' });
         }
-        const target = String(msg.user || '').trim().toLowerCase();
+        const target = resolveUserName(msg.user);
         if (!db.users[target]) return send(ws, { type: 'error', reason: 'no_user' });
         if (target === ws.user) return send(ws, { type: 'error', reason: 'self' });
         if (isAdmin(target)) return send(ws, { type: 'error', reason: 'target_admin' });
@@ -4343,7 +4446,7 @@ if (payOrder.status === 'paid') {
           return send(ws, { type: 'error', reason: 'forbidden' });
         }
         if (ENV_ADMINS.length) return send(ws, { type: 'error', reason: 'env_admins' });
-        const target = String(msg.user || '').trim().toLowerCase();
+        const target = resolveUserName(msg.user);
         if (!db.users[target]) return send(ws, { type: 'error', reason: 'no_user' });
         const promote = !!msg.admin;
         if (promote && !db.admins.includes(target)) db.admins.push(target);
@@ -4516,7 +4619,7 @@ const text = String(msg.text || '').trim().slice(0, 2000);
 
       case 'complaint_send': {
         if (!ws.user) return send(ws, { type: 'error', reason: 'forbidden' });
-        const target = String(msg.target || '').trim().toLowerCase();
+        const target = resolveUserName(msg.target);
         const reason = String(msg.reason || '').trim().slice(0, 500);
         if (!db.users[target]) return send(ws, { type: 'error', reason: 'no_user' });
 if (target === ws.user) return send(ws, { type: 'error', reason: 'self' });
@@ -4595,7 +4698,7 @@ if (target === ws.user) return send(ws, { type: 'error', reason: 'self' });
         if (!ws.user || !isAdmin(ws.user)) {
           return send(ws, { type: 'error', reason: 'forbidden' });
         }
-        const repTarget = String(msg.user || '').trim().toLowerCase();
+        const repTarget = resolveUserName(msg.user);
         const delta = Math.max(-20, Math.min(20, Number(msg.delta) || 0));
         const repUser = db.users[repTarget];
         if (!repUser) return send(ws, { type: 'error', reason: 'no_user' });

@@ -830,7 +830,7 @@ profile: msg.profile ?? { bio: '', statusText: '', statusKind: 'online', hideGam
                 : reason === 'ip_locked'
                   ? 'Слишком много попыток с этого адреса. Повторите позже'
                   : reason === 'bad_name'
-                ? 'Ник: 3–20 символов, латиница, цифры, _'
+                ? 'Ник: 3–20 символов, русские или латинские буквы, цифры, _'
                 : reason === 'bad_email'
                   ? 'Проверьте адрес эл. почты'
                   : reason === 'banned'
