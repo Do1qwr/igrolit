@@ -6,8 +6,8 @@
     "distDir": "../dist"
   },
   "package": {
-    "productName": "Game Launcher",
-    "version": "1.6.0"
+    "productName": "Igrolit",
+    "version": "1.6.3"
   },
   "tauri": {
     "allowlist": {
@@ -40,7 +40,7 @@
         "icons/128x128@2x.png",
         "icons/icon.ico"
       ],
-      "publisher": "Game Launcher",
+      "publisher": "Igrolit",
       "windows": {
         "nsis": {
           "installMode": "currentUser",
@@ -67,7 +67,7 @@
         "resizable": true,
         "decorations": false,
         "transparent": true,
-        "title": "Game Launcher",
+        "title": "Igrolit",
         "width": 1280,
         "height": 800,
         "minWidth": 820,

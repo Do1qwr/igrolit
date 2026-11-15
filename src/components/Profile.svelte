@@ -89,6 +89,9 @@ const NAV: { id: string; icon: string; label: string; badge?: () => string }[] =
   ];
 
   let tab: 'profile' | 'gifts' | 'edit' | 'achievements' | 'friends' | 'groups' | 'servers' | 'orders' | 'security' | 'complaint' = 'profile';
+  function openTab(id: string) {
+    tab = id as typeof tab;
+  }
   let ordersLoaded = false;
   let groupsLoaded = false;
 
@@ -1249,7 +1252,7 @@ $: if (tab === 'profile' && authed) {
           <button
             class:active={tab === item.id}
             title={item.label}
-            on:click={() => (tab = item.id)}
+            on:click={() => openTab(item.id)}
           >
             <span class="nav-ic"><Icon name={item.icon} size={17} /></span>
             <span class="nav-label">{item.label}</span>
@@ -4165,10 +4168,9 @@ $: if (tab === 'profile' && authed) {
     color: var(--text);
     cursor: pointer;
     text-align: center;
-    transform-style: preserve-3d;
-    transition: transform 0.25s ease, border-color 0.2s ease, box-shadow 0.25s ease;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
   }
-  .gift-card:hover { transform: rotateY(8deg) rotateX(-4deg) translateZ(10px) scale(1.03); border-color: var(--accent); }
+  .gift-card:hover { transform: translateY(-3px) scale(1.02); border-color: var(--accent); }
   .gift-card:active { transform: scale(0.97); }
   .gift-card.active { border-color: var(--accent); background: var(--accent-soft); box-shadow: 0 0 0 1px var(--accent); }
   .gift-card[data-rarity='rare'] { border-color: rgba(74, 144, 226, 0.55); }
@@ -4205,47 +4207,21 @@ $: if (tab === 'profile' && authed) {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-2px); }
   }
-  .gift-card-3d::before {
-    content: ''; position: absolute; inset: -1px; border-radius: 14px; padding: 1px;
-    background: linear-gradient(140deg, rgba(120,180,255,0.6), transparent 40%, transparent 60%, rgba(120,180,255,0.25));
-    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor; mask-composite: exclude;
-    pointer-events: none; z-index: 2;
-  }
-  .gift-card-3d[data-rarity='legendary']::before {
-    background: linear-gradient(140deg, rgba(255,215,120,0.9), transparent 40%, transparent 62%, rgba(227,161,59,0.5));
-  }
-  .gift-card-3d[data-rarity='epic']::before {
-    background: linear-gradient(140deg, rgba(190,120,255,0.85), transparent 42%, transparent 60%, rgba(138,43,226,0.45));
-  }
-  .gift-card-3d[data-rarity='rare']::before {
-    background: linear-gradient(140deg, rgba(110,180,255,0.8), transparent 44%, transparent 58%, rgba(74,144,226,0.4));
-  }
-  .gift-card-3d[data-rarity='legendary'] { box-shadow: 0 0 0 1px rgba(227,161,59,0.35), 0 6px 24px rgba(227,161,59,0.18); }
-  .gift-card-3d[data-rarity='epic'] { box-shadow: 0 0 0 1px rgba(138,43,226,0.3), 0 6px 24px rgba(138,43,226,0.16); }
-  .gift-card-3d[data-rarity='rare'] { box-shadow: 0 0 0 1px rgba(74,144,226,0.28), 0 6px 24px rgba(74,144,226,0.14); }
+  .gift-card-3d[data-rarity='legendary'] { border-color: rgba(227,161,59,0.7); box-shadow: 0 0 0 1px rgba(227,161,59,0.35), 0 6px 24px rgba(227,161,59,0.18); }
+  .gift-card-3d[data-rarity='epic'] { border-color: rgba(138,43,226,0.6); box-shadow: 0 0 0 1px rgba(138,43,226,0.3), 0 6px 24px rgba(138,43,226,0.16); }
+  .gift-card-3d[data-rarity='rare'] { border-color: rgba(74,144,226,0.55); box-shadow: 0 0 0 1px rgba(74,144,226,0.28), 0 6px 24px rgba(74,144,226,0.14); }
   @keyframes giftWobble {
     0%, 100% { transform: rotate(0deg) translateY(0); }
     30% { transform: rotate(-4deg) translateY(-2px); }
     65% { transform: rotate(4deg) translateY(1px); }
   }
-  /* Бегущий световой блик по 3D-карточке */
-  .gift-card-3d::after {
-    content: '';
-    position: absolute; top: -120%; left: 0; width: 55%; height: 340%;
-    background: linear-gradient(100deg, transparent 0%, rgba(255,255,255,0.16) 50%, transparent 100%);
-    transform: rotate(18deg);
-    animation: giftShine 4.2s ease-in-out infinite;
-    pointer-events: none;
-  }
-  /* Постоянное вращение объёмного предмета в глубину */
+  /* Постоянное лёгкое парение объёмного предмета */
   .gift-3d-stage {
     width: 62px; height: 62px; margin-bottom: 5px; flex: none;
     border-radius: 13px; overflow: hidden; position: relative;
     background: #0a0c12; border: 1px solid #232b3a;
     display: grid; place-items: center;
-    transform-style: preserve-3d;
-    animation: giftTumble 7s ease-in-out infinite;
+    animation: giftFloat 3.5s ease-in-out infinite;
   }
   /* Светящееся кольцо за предметом (не конфликтует с transform вращения) */
   .gift-3d-stage::before {
@@ -4271,8 +4247,7 @@ $: if (tab === 'profile' && authed) {
     position: absolute; width: 118%; height: 118%; object-fit: cover;
     top: -9%; left: -9%;
     z-index: 1;
-    will-change: transform;
-    animation: giftBreathe 7s ease-in-out infinite;
+        animation: giftBreathe 7s ease-in-out infinite;
   }
   .gift-card-3d:hover .gift-3d-stage { animation-play-state: paused; }
   .gift-card-3d:hover .gift-3d-stage img { transform: scale(1.14); }
@@ -4302,8 +4277,7 @@ $: if (tab === 'profile' && authed) {
     border-radius: 12px; overflow: hidden; position: relative;
     background: #0a0c12; border: 1px solid #232b3a;
     display: grid; place-items: center;
-    transform-style: preserve-3d;
-    animation: giftTumble 8s ease-in-out infinite;
+    animation: giftFloat 3.5s ease-in-out infinite;
   }
   .ach-3d-stage::before {
     content: ''; position: absolute; inset: -30%;
@@ -4316,8 +4290,7 @@ $: if (tab === 'profile' && authed) {
     position: absolute; width: 120%; height: 120%; object-fit: cover;
     top: -10%; left: -10%;
     z-index: 1;
-    will-change: transform;
-    animation: giftBreathe 8s ease-in-out infinite;
+        animation: giftBreathe 8s ease-in-out infinite;
   }
   .coin.rare .ach-3d-stage::before {
     background: radial-gradient(circle at 50% 50%, transparent 52%, rgba(66,168,255,0.28) 80%, transparent 100%);
@@ -4333,18 +4306,12 @@ $: if (tab === 'profile' && authed) {
   }
   @keyframes giftFloat {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-6px); }
-  }
-  /* Непрерывное лёгкое вращение в глубину (объём) */
-  @keyframes giftTumble {
-    0%   { transform: rotateY(0deg) rotateX(0deg); }
-    50%  { transform: rotateY(16deg) rotateX(-5deg); }
-    100% { transform: rotateY(0deg) rotateX(0deg); }
+    50% { transform: translateY(-4px); }
   }
   /* Дыхание картинки — живой масштаб */
   @keyframes giftBreathe {
     0%, 100% { transform: scale(1.02); }
-    50% { transform: scale(1.08); }
+    50% { transform: scale(1.05); }
   }
   /* Пульсация светового ореола */
   @keyframes giftHalo {
@@ -4431,3 +4398,4 @@ $: if (tab === 'profile' && authed) {
   .gift-rail-pick.clear { color: var(--muted); }
   .gift-rail-pick .gift-emoji { font-size: 18px; line-height: 1; }
 </style>
+

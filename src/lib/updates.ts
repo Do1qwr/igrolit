@@ -27,8 +27,14 @@ export async function currentVersion(): Promise<string> {
   }
 }
 
-export async function publishRelease(server: string, token: string, version: string, notes: string): Promise<string> {
-  return invoke<string>('release_publish', { server, token, version, notes });
+export async function publishRelease(
+  server: string,
+  token: string,
+  version: string,
+  notes: string,
+  confirm: string,
+): Promise<string> {
+  return invoke<string>('release_publish', { server, token, version, notes, confirm });
 }
 
 export async function fetchLatest(server: string): Promise<ReleaseMeta | null> {

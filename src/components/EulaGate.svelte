@@ -47,7 +47,7 @@
   <div class="box" role="dialog" aria-modal="true" aria-label="Лицензионное соглашение">
     <header>
       <h1>Лицензионное соглашение</h1>
-      <span class="ver">Версия {EULA_VERSION} · Game Launcher</span>
+      <span class="ver">Версия {EULA_VERSION} · Igrolit</span>
     </header>
 
     {#if declinedNotice}

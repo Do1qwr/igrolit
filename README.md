@@ -1,8 +1,11 @@
-# Game Launcher
+# Igrolit
 
 Десктопный лаунчер: собирает игры из Steam, Epic Games, GOG и вручную добавленные в одном окне, показывает наигранное время из локальных данных Steam, хранит свои серверы и профиль.
 
 Стек: Rust (Tauri 1.5), Svelte + TypeScript, Node.js-сервер на WebSocket.
+
+Windows-сборки подписываются через SignPath.io, сертификат предоставлен SignPath Foundation.
+Free code signing provided by [SignPath.io](https://signpath.io), certificate by [SignPath Foundation](https://signpath.org).
 
 ## Возможности
 

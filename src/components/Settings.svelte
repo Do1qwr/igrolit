@@ -9,6 +9,7 @@
 
   interface AppSettings {
     close_to_tray: boolean;
+    overlay_shift_tab: boolean;
     curtain_enabled: boolean;
     curtain_app: string;
     curtain_edge: string;
@@ -88,6 +89,7 @@ optimizeOnLaunch: true,
 
   const sDefaults: AppSettings = {
     close_to_tray: true,
+    overlay_shift_tab: false,
     curtain_enabled: true,
     curtain_app: '',
     curtain_edge: 'right',
@@ -165,7 +167,7 @@ optimizeOnLaunch: true,
     } catch (e) {
       console.error('Не удалось прочитать локальные настройки', e);
     }
-    local = { ...local, theme: normalizeTheme(local.theme as string) };
+    local = { ...local, theme: normalizeTheme(local.theme as string) as typeof local.theme };
 
     applyTheme();
     loadMemory();

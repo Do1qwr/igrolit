@@ -1,3 +1,4 @@
+#![allow(dead_code)]
 use rand::RngCore;
 use scrypt::{scrypt, Params};
 use serde::{Deserialize, Serialize};
@@ -416,7 +417,7 @@ fn connection(shared: Arc<Mutex<State>>, stream: TcpStream) {
     let mut conn_user: Option<String> = None;
 
     loop {
-        match socket.read_message() {
+        match socket.read() {
             Ok(Message::Text(text)) => {
                 if text.len() > 4096 {
                     continue;

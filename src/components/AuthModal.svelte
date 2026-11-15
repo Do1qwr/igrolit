@@ -133,7 +133,7 @@
     <div class="auth-top">
       <button class="back" title="Назад" aria-label="Закрыть" on:click={() => dispatch('close')}>‹</button>
       <span class="logo" aria-hidden="true"><Logo size={20} /></span>
-      <strong>Game Launcher</strong>
+      <strong>Igrolit</strong>
     </div>
 
     {#if need2fa}

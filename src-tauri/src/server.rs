@@ -81,7 +81,7 @@ pub fn create_tournament(
 pub fn get_tournaments() -> Vec<Tournament> {
     let store = load();
     let mut list = store.tournaments;
-    list.sort_by(|a, b| b.created_at.cmp(&a.created_at));
+    list.sort_by_key(|a| std::cmp::Reverse(a.created_at));
     list
 }
 

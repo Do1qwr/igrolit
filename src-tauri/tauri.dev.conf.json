@@ -1,0 +1,51 @@
+{
+  "package": {
+    "productName": "Igrolit-dev"
+  },
+  "tauri": {
+    "bundle": {
+      "publisher": "Igrolit"
+    },
+    "windows": [
+      {
+        "label": "main",
+        "fullscreen": false,
+        "resizable": true,
+        "decorations": false,
+        "transparent": true,
+        "title": "Igrolit-dev",
+        "width": 1280,
+        "height": 800,
+        "minWidth": 820,
+        "minHeight": 560,
+        "center": true
+      },
+      {
+        "label": "palette",
+        "url": "index.html",
+        "title": "Palette",
+        "width": 640,
+        "height": 460,
+        "resizable": false,
+        "decorations": false,
+        "transparent": true,
+        "alwaysOnTop": true,
+        "skipTaskbar": true,
+        "visible": false
+      },
+      {
+        "label": "curtain",
+        "url": "index.html",
+        "title": "Шторка",
+        "width": 360,
+        "height": 640,
+        "resizable": false,
+        "decorations": false,
+        "transparent": true,
+        "alwaysOnTop": true,
+        "skipTaskbar": true,
+        "visible": false
+      }
+    ]
+  }
+}

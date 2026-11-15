@@ -1,3 +1,4 @@
+#![allow(dead_code)]
 use aes_gcm::aead::{Aead, KeyInit};
 use aes_gcm::{Aes256Gcm, Key, Nonce};
 use rand::rngs::OsRng;
@@ -35,10 +36,7 @@ pub fn decrypt_pii(data: &[u8], key: &[u8; 32]) -> Vec<u8> {
     let key = Key::<Aes256Gcm>::from_slice(key);
     let cipher = Aes256Gcm::new(key);
     let (nonce, ct) = data.split_at(12);
-    match cipher.decrypt(Nonce::from_slice(nonce), ct) {
-        Ok(pt) => pt,
-        Err(_) => Vec::new(),
-    }
+    cipher.decrypt(Nonce::from_slice(nonce), ct).unwrap_or_default()
 }
 
 /// Ключ шифрования из переменной окружения ENCRYPTION_KEY (64 hex-символа).
@@ -80,6 +78,6 @@ fn persist_or_load_key() -> [u8; 32] {
     }
     let mut key = [0u8; 32];
     OsRng.fill_bytes(&mut key);
-    let _ = std::fs::write(&path, &key);
+    let _ = std::fs::write(&path, key);
     key
 }

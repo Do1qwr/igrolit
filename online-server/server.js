@@ -10,6 +10,59 @@ const DATA_FILE = path.resolve(process.env.DATA_FILE || path.join(__dirname, 'da
 const BANNER_DIR = path.join(path.dirname(DATA_FILE), 'banners');
 const RELEASES_DIR = path.join(path.dirname(DATA_FILE), 'releases');
 const LOG_FILE = path.join(path.dirname(DATA_FILE), 'server.log');
+const BACKUP_DIR = path.join(path.dirname(DATA_FILE), 'backups');
+const BACKUP_KEEP = 10;
+
+function appendLogLine(text) {
+  try {
+    fs.appendFileSync(LOG_FILE, '[' + new Date().toISOString() + '] ' + text + '\n');
+  } catch {}
+}
+
+function backupStamp() {
+  const d = new Date();
+  const p = (n) => String(n).padStart(2, '0');
+  return (
+    d.getFullYear() + p(d.getMonth() + 1) + p(d.getDate()) + '-' +
+    p(d.getHours()) + p(d.getMinutes()) + p(d.getSeconds()) + '-' +
+    String(d.getMilliseconds()).padStart(3, '0')
+  );
+}
+
+function backupFiles() {
+  try {
+    return fs
+      .readdirSync(BACKUP_DIR)
+      .filter((f) => f.endsWith('.json'))
+      .sort();
+  } catch {
+    return [];
+  }
+}
+
+function newestBackup() {
+  const files = backupFiles();
+  return files.length ? path.join(BACKUP_DIR, files[files.length - 1]) : null;
+}
+
+function makeBackup(reason) {
+  try {
+    if (!fs.existsSync(DATA_FILE)) return;
+    fs.mkdirSync(BACKUP_DIR, { recursive: true });
+    const target = path.join(BACKUP_DIR, 'data-' + backupStamp() + '.json');
+    fs.copyFileSync(DATA_FILE, target);
+    const files = backupFiles();
+    while (files.length > BACKUP_KEEP) {
+      const old = files.shift();
+      try {
+        fs.unlinkSync(path.join(BACKUP_DIR, old));
+      } catch {}
+    }
+    console.log('backup created:', path.basename(target), reason || '');
+  } catch (e) {
+    console.warn('backup failed:', e && e.message ? e.message : e);
+  }
+}
 
 function appendLog(line) {
   try {
@@ -55,8 +108,41 @@ audit: parsed.audit || [],
       groups: parsed.groups || [],
     };
   }
-} catch {
-  db = { users: {}, admins: ENV_ADMINS, public_servers: [], pending_servers: [] };
+} catch (error) {
+  const recover = newestBackup();
+  if (recover) {
+    try {
+      const parsed = JSON.parse(fs.readFileSync(recover, 'utf8'));
+      if (!parsed || !parsed.users) throw new Error('backup_bad_shape');
+      db = {
+        users: parsed.users || {},
+        admins: ENV_ADMINS.length ? ENV_ADMINS : (parsed.admins || []),
+        public_servers: parsed.public_servers || [],
+        pending_servers: parsed.pending_servers || [],
+        audit: parsed.audit || [],
+        tickets: parsed.tickets || [],
+        complaints: parsed.complaints || [],
+        orders: parsed.orders || [],
+        groups: parsed.groups || [],
+      };
+      const recoveryNote =
+        'data.json повреждён (' +
+        (error && error.message ? error.message : error) +
+        '), восстановлено из ' +
+        path.basename(recover);
+      appendLogLine(recoveryNote);
+      console.warn(recoveryNote);
+      try {
+        fs.copyFileSync(DATA_FILE, DATA_FILE + '.corrupt-' + backupStamp());
+      } catch {}
+    } catch {
+      console.warn('бэкап не подошёл — старт с пустой базой');
+      db = { users: {}, admins: ENV_ADMINS, public_servers: [], pending_servers: [] };
+    }
+  } else {
+    console.warn('data.json не прочитан, бэкапов нет — старт с пустой базой');
+    db = { users: {}, admins: ENV_ADMINS, public_servers: [], pending_servers: [] };
+  }
 }
 
 db.audit = Array.isArray(db.audit) ? db.audit : [];
@@ -70,6 +156,8 @@ db.meta = db.meta && typeof db.meta === 'object' ? db.meta : {};
 if (!db.meta.maintenance || typeof db.meta.maintenance !== 'object') {
   db.meta.maintenance = { on: false, message: '', since: 0 };
 }
+
+makeBackup('startup');
 
 // Уникальный числовой ID игрока. Выдаётся при регистрации; существующим — при загрузке.
 // db.seqUid хранит счётчик следующего свободного ID, чтобы не выдавать повторно.
@@ -1202,8 +1290,12 @@ function pinnedServers(viewer) {
 
 function save() {
   const tmp = DATA_FILE + '.tmp';
-  fs.writeFileSync(tmp, JSON.stringify(db, null, 2));
-  fs.renameSync(tmp, DATA_FILE);
+  try {
+    fs.writeFileSync(tmp, JSON.stringify(db, null, 2));
+    fs.renameSync(tmp, DATA_FILE);
+  } catch (e) {
+    console.warn('save failed:', e && e.message ? e.message : e);
+  }
 }
 
 function hashPassword(password, salt) {
@@ -1701,6 +1793,14 @@ const server = http.createServer((req, res) => {
     }
     const query = new URLSearchParams(String(req.url).split('?')[1] || '');
     const version = String(query.get('version') || '').trim();
+    const confirm = String(req.headers['x-confirm'] || '').trim();
+    const consent = publishConsents.get(confirm);
+    if (!consent || consent.user !== publisher || consent.exp < Date.now()) {
+      res.writeHead(403);
+      res.end('consent_required');
+      return;
+    }
+    publishConsents.delete(confirm);
     const notes = String(query.get('notes') || '').slice(0, 400);
     const signature = String(req.headers['x-signature'] || '').trim().toLowerCase();
     if (!/^[0-9a-f]{128}$/.test(signature)) {
@@ -1789,6 +1889,7 @@ const server = http.createServer((req, res) => {
 
 const wss = new WebSocketServer({ server });
 const sockets = new Map();
+const publishConsents = new Map();
 
 wss.on('error', (error) => {
   console.error('WebSocket server error:', error);
@@ -3587,6 +3688,23 @@ if (payOrder.status === 'paid') {
         audit(ws.user, 'admin_maintenance', on ? 'on' : 'off', text);
         console.log('admin maintenance', ws.user, on, text);
         send(ws, { type: 'admin_ok', action: 'maintenance', on, message: text });
+        return;
+      }
+
+      case 'publish_consent': {
+        if (!ws.user || !isAdmin(ws.user)) return send(ws, { type: 'error', reason: 'forbidden' });
+        const pass = String(msg.pass || '');
+        if (!pass || !verifyPassword(pass, db.users[ws.user])) {
+          return send(ws, { type: 'publish_consent_fail', reason: 'bad_pass' });
+        }
+        const token = crypto.randomBytes(24).toString('hex');
+        publishConsents.set(token, { user: ws.user, exp: Date.now() + 10 * 60 * 1000 });
+        for (const [key, value] of publishConsents) {
+          if (value.exp < Date.now()) publishConsents.delete(key);
+        }
+        audit(ws.user, 'publish_consent', ws.user, 'ok');
+        console.log('publish consent', ws.user);
+        send(ws, { type: 'publish_consent_ok', token, user: ws.user, ttl: 600 });
         return;
       }
 

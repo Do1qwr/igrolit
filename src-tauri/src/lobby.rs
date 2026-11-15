@@ -82,7 +82,7 @@ pub fn start(app: AppHandle, nick: String) {
                 let limit = now().saturating_sub(8);
                 s.rooms.retain(|_, room| room.ts >= limit);
                 let mut rooms: Vec<Room> = s.rooms.values().cloned().collect();
-                rooms.sort_by(|a, b| a.name.to_lowercase().cmp(&b.name.to_lowercase()));
+                rooms.sort_by_key(|a| a.name.to_lowercase());
                 rooms
             };
 

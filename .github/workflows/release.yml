@@ -42,6 +42,12 @@ jobs:
       - name: Тесты Rust
         run: cargo test --manifest-path src-tauri/Cargo.toml
 
+      - name: Проверка типов
+        run: npm run typecheck
+
+      - name: Тест защиты базы
+        run: npm run test:db
+
       - name: Сервер для smoke-тестов
         shell: pwsh
         run: |

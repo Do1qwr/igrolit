@@ -311,6 +311,7 @@ export interface SessionInfo {
   created: number;
   lastSeen: number;
   current: boolean;
+  newDevice?: boolean;
 }
 
 export interface GroupPost {
@@ -613,7 +614,7 @@ authed: false,
   allTickets: [],
   supportSent: 0,
   reputation: 0,
-  profile: { bio: '', statusText: '', statusKind: 'online', hideGame: false, avatar: '' },
+  profile: { bio: '', firstName: '', lastName: '', statusText: '', statusKind: 'online', hideGame: false, avatar: '', gender: '', city: '', country: '', birthdate: '', cover: '', frame: '' },
 progress: null,
   holidayGranted: [],
   onlineNow: [],
@@ -633,7 +634,7 @@ progress: null,
   exportJson: '',
   deleted: false,
   voteOk: 0,
- privacy: { lastSeen: 'friends', photo: 'friends', messages: 'friends', friendRequests: 'everyone', showName: 'everyone' },
+ privacy: { profile: 'everyone', game: 'friends', friends: 'everyone', lastSeen: 'friends', photo: 'friends', messages: 'friends', friendRequests: 'everyone', showName: 'everyone' },
   directory: {
     items: [],
     total: 0,
@@ -747,6 +748,24 @@ function handle(raw: string) {
   const state = get(online);
 
   switch (msg.type) {
+    case 'publish_consent_ok': {
+      if (consentPending) {
+        clearTimeout(consentPending.timer);
+        const resolve = consentPending.resolve;
+        consentPending = null;
+        resolve(String(msg.token || ''));
+      }
+      break;
+    }
+    case 'publish_consent_fail': {
+      if (consentPending) {
+        clearTimeout(consentPending.timer);
+        const reject = consentPending.reject;
+        consentPending = null;
+        reject(new Error(msg.reason === 'bad_pass' ? 'Неверный пароль' : 'Сервер отклонил запрос'));
+      }
+      break;
+    }
     case 'auth_ok': {
       const threads = { ...state.threads };
       patch({
@@ -1287,6 +1306,32 @@ case 'coins_bought': {
   }
 }
 
+let consentPending: {
+  resolve: (token: string) => void;
+  reject: (error: Error) => void;
+  timer: ReturnType<typeof setTimeout>;
+} | null = null;
+
+export function requestPublishConsent(pass: string): Promise<string> {
+  return new Promise((resolve, reject) => {
+    if (!ws || ws.readyState !== 1) {
+      reject(new Error('Нет связи с сервером'));
+      return;
+    }
+    if (consentPending) {
+      clearTimeout(consentPending.timer);
+      consentPending.reject(new Error('Повторный запрос'));
+      consentPending = null;
+    }
+    const timer = setTimeout(() => {
+      consentPending = null;
+      reject(new Error('Сервер не ответил'));
+    }, 10000);
+    consentPending = { resolve, reject, timer };
+    ws.send(JSON.stringify({ type: 'publish_consent', pass }));
+  });
+}
+
 function connect() {
   disconnect();
   const state = get(online);
@@ -1462,7 +1507,7 @@ authed: false,
     allTickets: [],
     supportSent: 0,
     reputation: 0,
-profile: { bio: '', statusText: '', statusKind: 'online', hideGame: false, avatar: '' },
+profile: { bio: '', firstName: '', lastName: '', statusText: '', statusKind: 'online', hideGame: false, avatar: '', gender: '', city: '', country: '', birthdate: '', cover: '', frame: '' },
 progress: null,
     holidayGranted: [],
     onlineNow: [],
@@ -1470,7 +1515,7 @@ progress: null,
     friendSent: [],
     complaints: [],
     complaintSent: 0,
-privacy: { lastSeen: 'friends', photo: 'friends', messages: 'friends', friendRequests: 'everyone', showName: 'everyone' },
+privacy: { profile: 'everyone', game: 'friends', friends: 'everyone', lastSeen: 'friends', photo: 'friends', messages: 'friends', friendRequests: 'everyone', showName: 'everyone' },
   });
   persist(state.server, state.user, '');
   invoke('online_session_clear').catch((e) => console.error(e));

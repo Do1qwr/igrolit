@@ -67,7 +67,7 @@ pub fn verify_chain() -> bool {
     };
     let reader = std::io::BufReader::new(file);
     let mut expected_prev = "GENESIS".to_string();
-    for line in reader.lines().flatten() {
+    for line in reader.lines().map_while(|line| line.ok()) {
         if line.trim().is_empty() {
             continue;
         }

@@ -107,7 +107,7 @@ fn handle_client(app: AppHandle, stream: TcpStream) {
     let mut nick = String::new();
     let reader = BufReader::new(reader_stream);
 
-    for line in reader.lines().flatten() {
+    for line in reader.lines().map_while(|line| line.ok()) {
         let msg: Msg = match serde_json::from_str(&line) {
             Ok(msg) => msg,
             Err(_) => continue,
@@ -148,7 +148,6 @@ fn handle_client(app: AppHandle, stream: TcpStream) {
                     if let Some(payload) = encode(&reject) {
                         let _ = writer.write_all(payload.as_bytes());
                     }
-                    registered = false;
                     return;
                 }
                 {
@@ -325,7 +324,7 @@ pub fn join(app: AppHandle, host: &str, port: u16, nick: String) -> Result<(), S
 
     thread::spawn(move || {
 
-        for line in reader.lines().flatten() {
+        for line in reader.lines().map_while(|line| line.ok()) {
             let msg: Msg = match serde_json::from_str(&line) {
                 Ok(msg) => msg,
                 Err(_) => continue,

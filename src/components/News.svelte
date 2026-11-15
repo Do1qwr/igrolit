@@ -265,12 +265,12 @@
         <textarea bind:value={createTagline} rows="2" maxlength="120" placeholder="Пара слов о группе"></textarea>
       </div>
       <div class="n-field">
-        <label>Аббревиатура <button class="n-help" type="button" onclick={() => (showHelp = showHelp ? '' : 'abbrev')} title="Что это?">?</button></label>
+        <label>Аббревиатура <button class="n-help" type="button" on:click={() => (showHelp = showHelp ? '' : 'abbrev')} title="Что это?">?</button></label>
         <input bind:value={createAbbrev} maxlength="20" placeholder="Например: МР" autocomplete="off" />
         <span class="n-hint">Короткая метка-идентификатор, например «МР».</span>
       </div>
       <div class="n-field">
-        <label>Ссылка <button class="n-help" type="button" onclick={() => (showHelp = showHelp ? '' : 'link')} title="Что это?">?</button></label>
+        <label>Ссылка <button class="n-help" type="button" on:click={() => (showHelp = showHelp ? '' : 'link')} title="Что это?">?</button></label>
         <div class="n-prefix">laub://group/</div>
         <input bind:value={createLink} maxlength="60" placeholder="myta-retro" autocomplete="off" />
         <span class="n-hint">Короткий адрес группы. Латиница, цифры, _ и -.</span>

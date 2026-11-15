@@ -200,7 +200,7 @@ pub fn watch(exe: String, app_id: String, pre_save: Option<String>) {
                 let game_name = crate::platforms::name_for_id(&app_id).unwrap_or_else(|| exe.clone());
                 let minutes = (ran_secs / 60) as u32;
                 let _ = crate::system::log_session_end(&game_name, minutes);
-                let _ = crate::gamification::add_minutes("local_player", minutes);
+                crate::gamification::add_minutes("local_player", minutes);
                 return;
             }
 

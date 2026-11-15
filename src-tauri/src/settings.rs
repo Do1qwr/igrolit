@@ -4,7 +4,7 @@ use winreg::enums::*;
 use winreg::RegKey;
 
 /// Настройки приложения. Часть полей перенесена из SteamCurtain (settings.txt),
-/// часть — поведение самого Game Launcher.
+/// часть — поведение самого Igrolit.
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(default)]
 pub struct AppSettings {

@@ -78,7 +78,7 @@ pub fn verify_update(bytes: &[u8], sig_hex: &str) -> bool {
 
 fn base64_encode(data: &[u8]) -> String {
     const TABLE: &[u8; 64] = b"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
-    let mut out = String::with_capacity((data.len() + 2) / 3 * 4);
+    let mut out = String::with_capacity(data.len().div_ceil(3) * 4);
     for chunk in data.chunks(3) {
         let b0 = chunk[0] as u32;
         let b1 = *chunk.get(1).unwrap_or(&0) as u32;
@@ -161,6 +161,8 @@ fn release_exe_path() -> Result<std::path::PathBuf, String> {
     let current = std::env::current_exe().map_err(|e| e.to_string())?;
     let dir = current.parent().ok_or("no_dir")?.to_path_buf();
     let candidates = [
+        dir.join("igrolit.exe"),
+        dir.join("Igrolit.exe"),
         dir.join("game-launcher.exe"),
         dir.join("Game Launcher.exe"),
     ];
@@ -186,7 +188,13 @@ fn app_version() -> String {
 }
 
 #[tauri::command]
-fn release_publish(server: String, token: String, version: String, notes: String) -> Result<String, String> {
+fn release_publish(
+    server: String,
+    token: String,
+    version: String,
+    notes: String,
+    confirm: String,
+) -> Result<String, String> {
     let path = release_exe_path()?;
     let bytes = std::fs::read(&path).map_err(|e| e.to_string())?;
     let signature = sign_update(&bytes).map_err(|err| {
@@ -207,6 +215,7 @@ fn release_publish(server: String, token: String, version: String, notes: String
         .post(&url)
         .header("x-token", token)
         .header("x-signature", signature)
+        .header("x-confirm", confirm)
         .body(bytes)
         .send()
         .map_err(|e| e.to_string())?;
@@ -243,7 +252,7 @@ fn update_check(server: String) -> Result<serde_json::Value, String> {
     update_log(&format!("latest={latest} applied={applied}"));
     if !latest.is_empty() && applied == latest {
         update_log("already applied");
-        return Ok(serde_json::Value::Null);
+        return Ok(meta);
     }
     Ok(meta)
 }
@@ -438,7 +447,7 @@ fn log_crash(kind: String, message: String, details: String) -> Result<(), Strin
         .open(&path)
         .map_err(|e| e.to_string())?;
     file.write_all(line.as_bytes()).map_err(|e| e.to_string())?;
-    let _ = crate::audit::append("crash_logged", "system", &kind);
+    crate::audit::append("crash_logged", "system", &kind);
     Ok(())
 }
 
@@ -1659,7 +1668,7 @@ fn export_wrapped(png: Vec<u8>) -> Result<String, String> {
     let dir = dirs::picture_dir()
         .or_else(|| dirs::home_dir().map(|home| home.join("Pictures")))
         .unwrap_or_else(|| dirs::data_local_dir().unwrap_or_default())
-        .join("Game Launcher");
+        .join("Igrolit");
     std::fs::create_dir_all(&dir).map_err(|e| e.to_string())?;
     let name = format!(
         "wrapped-{}.png",
@@ -1963,7 +1972,7 @@ fn start_boss_key() {
             std::thread::sleep(std::time::Duration::from_millis(50));
             tick = tick.wrapping_add(1);
 
-            if tick % 33 == 0 {
+            if tick.is_multiple_of(33) {
                 let s = settings::load_settings();
                 if let Some((m, k)) = parse_hotkey(&s.boss_key) {
                     mods = m;
@@ -2015,7 +2024,7 @@ fn start_overlay_key(app: tauri::AppHandle) {
             std::thread::sleep(std::time::Duration::from_millis(50));
             tick = tick.wrapping_add(1);
 
-            if tick % 20 == 0 {
+            if tick.is_multiple_of(20) {
                 enabled = settings::load_settings().overlay_shift_tab;
             }
 
@@ -2048,7 +2057,7 @@ fn main() {
 
             optimizer::restore_on_startup();
 
-            let open = tauri::CustomMenuItem::new("open".to_string(), "Открыть Game Launcher");
+            let open = tauri::CustomMenuItem::new("open".to_string(), "Открыть Igrolit");
             let curtain = tauri::CustomMenuItem::new("curtain".to_string(), "Открыть шторку");
             let quit = tauri::CustomMenuItem::new("quit".to_string(), "Выход");
             let menu = tauri::SystemTrayMenu::new()
@@ -2059,7 +2068,7 @@ fn main() {
             let handle = app.handle();
             let mut tray = tauri::SystemTray::new()
                 .with_menu(menu)
-                .with_tooltip("Game Launcher")
+                .with_tooltip("Igrolit")
                 .on_event(move |event| match event {
                     tauri::SystemTrayEvent::LeftClick { .. } => show_main(&handle),
                     tauri::SystemTrayEvent::MenuItemClick { id, .. } => {

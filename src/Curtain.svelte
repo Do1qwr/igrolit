@@ -129,10 +129,10 @@
       {#if zoneOpen}
         <div class="zone">
           <div class="corners">
-            <button class="chip" class:on={s.corner_tl} on:click={() => (s.corner_tl = !s.corner_tl)}>{$t('corner.tl')}</button>
-            <button class="chip" class:on={s.corner_tr} on:click={() => (s.corner_tr = !s.corner_tr)}>{$t('corner.tr')}</button>
-            <button class="chip" class:on={s.corner_bl} on:click={() => (s.corner_bl = !s.corner_bl)}>{$t('corner.bl')}</button>
-            <button class="chip" class:on={s.corner_br} on:click={() => (s.corner_br = !s.corner_br)}>{$t('corner.br')}</button>
+            <button class="chip" class:on={s.corner_tl} on:click={() => { if (s) s.corner_tl = !s.corner_tl; }}>{$t('corner.tl')}</button>
+            <button class="chip" class:on={s.corner_tr} on:click={() => { if (s) s.corner_tr = !s.corner_tr; }}>{$t('corner.tr')}</button>
+            <button class="chip" class:on={s.corner_bl} on:click={() => { if (s) s.corner_bl = !s.corner_bl; }}>{$t('corner.bl')}</button>
+            <button class="chip" class:on={s.corner_br} on:click={() => { if (s) s.corner_br = !s.corner_br; }}>{$t('corner.br')}</button>
           </div>
 
           <label class="row">

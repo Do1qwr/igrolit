@@ -155,7 +155,7 @@
 
     ctx.fillStyle = '#5d6b82';
     ctx.font = '500 16px "Segoe UI", sans-serif';
-    ctx.fillText('Game Launcher', 72, 646);
+    ctx.fillText('Igrolit', 72, 646);
   }
 
   async function save() {

@@ -9,8 +9,8 @@
   import Logo from './components/Logo.svelte';
 import Settings from './components/Settings.svelte';
   import AuthModal from './components/AuthModal.svelte';
-  import { online, initOnline, acceptConsent, signupJust, requestProfileView, requestWalletHistory } from './lib/online';
-  import { IS_DEV, UPDATE_SERVER, currentVersion, publishRelease, fetchLatest, installUpdate, isNewer } from './lib/updates';
+  import { online, initOnline, acceptConsent, signupJust, requestProfileView, requestWalletHistory, requestPublishConsent } from './lib/online';
+  import { IS_DEV, CHANNEL, UPDATE_SERVER, currentVersion, publishRelease, fetchLatest, installUpdate, isNewer } from './lib/updates';
   import Maintenance from './components/Maintenance.svelte';
   import { gate, startGate } from './lib/gate';
   import ContinueRow from './components/ContinueRow.svelte';
@@ -191,6 +191,10 @@ import Settings from './components/Settings.svelte';
   let showAddModal = false;
   let authOpen = false;
   let authMode: 'login' | 'register' = 'login';
+  function openAuthModal(mode: 'login' | 'register') {
+    authMode = mode;
+    authOpen = true;
+  }
   let showPicker = false;
   let showOnboarding = false;
   let showProfileOnboarding = false;
@@ -206,6 +210,8 @@ import Settings from './components/Settings.svelte';
   let appVer = '';
   let publishBusy = false;
   let publishMsg = '';
+  let publishPass = '';
+  let publishAgree = false;
   let devToolsOpen = false;
   let DevToolsComp: typeof import('./components/DevTools.svelte').default | null = null;
   let enableToasts = true;
@@ -649,6 +655,8 @@ let padRaf = 0;
     publishBusy = false;
     publishMsg = '';
     publishNotes = '';
+    publishPass = '';
+    publishAgree = false;
     publishVersion = bumpPatch(await currentVersion());
   }
 
@@ -663,10 +671,22 @@ let padRaf = 0;
       publishMsg = 'Версия в формате 1.0.1';
       return;
     }
+    if (!publishAgree) {
+      publishMsg = 'Подтвердите, что публикуете от своего имени';
+      return;
+    }
+    if (!publishPass) {
+      publishMsg = 'Введите пароль для подтверждения';
+      return;
+    }
     publishBusy = true;
-    publishMsg = 'Собираю и выкладываю…';
+    publishMsg = 'Подтверждаю личность…';
     try {
-      await publishRelease(server, token, publishVersion.trim(), publishNotes.trim());
+      const confirm = await requestPublishConsent(publishPass);
+      publishMsg = 'Собираю и выкладываю…';
+      await publishRelease(server, token, publishVersion.trim(), publishNotes.trim(), confirm);
+      publishPass = '';
+      publishAgree = false;
       publishMsg = 'Опубликовано: ' + publishVersion.trim();
     } catch (e) {
       publishMsg = 'Ошибка: ' + String(e);
@@ -685,7 +705,7 @@ let padRaf = 0;
     const [meta, current] = await Promise.all([fetchLatest(server), currentVersion()]);
     console.log('[update] latest', meta && meta.version, 'current', current);
     if (!meta) {
-      if (manual) notify('Обновлений нет');
+      if (manual) notify('Не удалось проверить обновления: сервер недоступен');
       return;
     }
     if (!isNewer(meta.version, current)) {
@@ -866,7 +886,7 @@ const onPadConnected = () => startPadLoop();
         {/if}
       </div>
 
-      <span class="tb-title" data-tauri-drag-region>Game Launcher</span>
+      <span class="tb-title" data-tauri-drag-region>Igrolit</span>
       <div class="tb-drag" data-tauri-drag-region></div>
     </div>
 
@@ -1186,7 +1206,7 @@ const onPadConnected = () => startPadLoop();
             this={$lazyParts.profile}
             gamesCount={games.length}
             games={games}
-            onOpenAuth={(mode) => { authMode = mode; authOpen = true; }}
+            onOpenAuth={openAuthModal}
             onOpenServers={() => { view = 'servers'; }}
             onOpenPlayers={() => { view = 'players'; }}
           />
@@ -1196,7 +1216,7 @@ const onPadConnected = () => startPadLoop();
       {:else if view === 'players'}
         {#if $lazyParts.players}<svelte:component this={$lazyParts.players} onOpenProfile={openPlayerProfile} />{/if}
       {:else if view === 'news'}
-        {#if $lazyParts.news}<svelte:component this={$lazyParts.news} onOpenAuth={(mode) => { authMode = mode; authOpen = true; }} />{/if}
+        {#if $lazyParts.news}<svelte:component this={$lazyParts.news} onOpenAuth={openAuthModal} />{/if}
       {:else if view === 'saves'}
         {#if $lazyParts.saves}<svelte:component this={$lazyParts.saves} {games} />{/if}
       {:else if view === 'retro'}
@@ -1204,11 +1224,11 @@ const onPadConnected = () => startPadLoop();
       {:else if view === 'servers'}
         {#if $lazyParts.servers}<svelte:component this={$lazyParts.servers} />{/if}
       {:else if view === 'wallet'}
-        {#if $lazyParts.wallet}<svelte:component this={$lazyParts.wallet} onNeedAuth={(mode) => { authMode = mode; authOpen = true; }} />{/if}
+        {#if $lazyParts.wallet}<svelte:component this={$lazyParts.wallet} onNeedAuth={openAuthModal} />{/if}
       {:else if view === 'admin'}
         {#if $lazyParts.admin}<svelte:component this={$lazyParts.admin} onOpenSupport={() => { view = 'support'; }} />{/if}
       {:else if view === 'support'}
-        {#if $lazyParts.support}<svelte:component this={$lazyParts.support} onOpenAuth={(mode) => { authMode = mode; authOpen = true; }} />{/if}
+        {#if $lazyParts.support}<svelte:component this={$lazyParts.support} onOpenAuth={openAuthModal} />{/if}
       {:else if view === 'settings'}
         {#if $lazyParts.settings}<svelte:component this={$lazyParts.settings} {games} />{/if}
       {:else if loading}
@@ -1282,7 +1302,7 @@ const onPadConnected = () => startPadLoop();
           {platforms.length} {$t(pluralKey($locale, platforms.length, 'status.platforms'))} ·
           {$t('status.fav', { n: favoritesCount })}
         </span>
-        <span class="ver">Game Launcher {appVer}</span>
+        <span class="ver">Igrolit {appVer}</span>
       </footer>
     {/if}
   </section>
@@ -1325,6 +1345,14 @@ const onPadConnected = () => startPadLoop();
         <span>Что нового</span>
         <textarea bind:value={publishNotes} rows="3" placeholder="Коротко о изменениях"></textarea>
       </label>
+      <label class="pub-field">
+        <span>Пароль владельца</span>
+        <input type="password" bind:value={publishPass} placeholder="Ваш пароль" spellcheck="false" />
+      </label>
+      <label class="pub-check">
+        <input type="checkbox" bind:checked={publishAgree} />
+        <span>Публикую от имени {$online.user || '—'} — обновление увидят все пользователи</span>
+      </label>
       {#if publishMsg}<span class="pub-msg">{publishMsg}</span>{/if}
       <div class="pub-actions">
         <button class="ghost" on:click={() => (publishOpen = false)}>Закрыть</button>
@@ -1343,7 +1371,10 @@ const onPadConnected = () => startPadLoop();
         <button class="icon-btn" on:click={() => (showAbout = false)} aria-label="Закрыть">×</button>
       </header>
       <div class="modal-body">
-        <p class="about-name">Game Launcher <span>{appVer}</span></p>
+        <p class="about-name">Igrolit <span>{appVer}</span></p>
+        <p class="about-text">
+          Канал: {CHANNEL} · сервер обновлений: {UPDATE_SERVER}
+        </p>
         <p class="about-text">
           Собирает установленные игры из Steam, Epic и GOG, показывает обложки,
           статистику и позволяет добавлять свои игры.
@@ -2311,6 +2342,20 @@ const onPadConnected = () => startPadLoop();
   }
   .pub-modal h3 { margin: 0; font-size: 15px; }
   .pub-hint { margin: 0; font-size: 11.5px; color: var(--muted); }
+  .pub-check {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    font-size: 12px;
+    line-height: 1.4;
+    color: #9fb0c7;
+    margin-bottom: 12px;
+  }
+
+  .pub-check input {
+    margin-top: 2px;
+  }
+
   .pub-field { display: flex; flex-direction: column; gap: 4px; font-size: 11.5px; color: var(--muted-2); }
   .pub-field input,
   .pub-field textarea {

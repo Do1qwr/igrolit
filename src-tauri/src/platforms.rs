@@ -22,7 +22,7 @@ pub fn scan_all_games() -> Vec<Game> {
     all_games.extend(scan_epic());
     all_games.extend(scan_gog());
     all_games.extend(scan_custom());
-    all_games.sort_by(|a, b| a.name.to_lowercase().cmp(&b.name.to_lowercase()));
+    all_games.sort_by_key(|a| a.name.to_lowercase());
     all_games
 }
 
@@ -47,12 +47,10 @@ pub(crate) fn steam_install_path() -> PathBuf {
             .and_then(|k| k.get_value::<String, _>("SteamPath")),
     ];
 
-    for c in candidates.into_iter() {
-        if let Ok(p) = c {
-            let path = PathBuf::from(p);
-            if path.exists() {
-                return path;
-            }
+    for p in candidates.into_iter().flatten() {
+        let path = PathBuf::from(p);
+        if path.exists() {
+            return path;
         }
     }
     PathBuf::from(r"C:\Program Files (x86)\Steam")

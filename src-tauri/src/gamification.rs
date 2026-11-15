@@ -201,7 +201,7 @@ pub fn get_leaderboard(nicknames: &HashMap<String, String>) -> Vec<LeaderboardEn
             rank: 0,
         })
         .collect();
-    entries.sort_by(|a, b| b.xp.cmp(&a.xp));
+    entries.sort_by_key(|a| std::cmp::Reverse(a.xp));
     for (i, e) in entries.iter_mut().enumerate() {
         e.rank = (i as u32) + 1;
     }
